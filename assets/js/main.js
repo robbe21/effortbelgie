@@ -50,6 +50,8 @@
       heroVideo.removeAttribute("autoplay");
       heroVideo.pause && heroVideo.pause();
     } else {
+      var big = window.matchMedia && window.matchMedia("(min-width: 880px)").matches;
+      var src = (big && heroVideo.dataset.desktop) ? heroVideo.dataset.desktop : heroVideo.dataset.mobile;
       var tryPlay = function () {
         heroVideo.classList.add("is-ready");
         var p = heroVideo.play();
@@ -57,6 +59,10 @@
       };
       heroVideo.addEventListener("canplay", tryPlay);
       heroVideo.addEventListener("loadeddata", tryPlay);
+      if (src) {
+        heroVideo.src = src;
+        heroVideo.load();
+      }
       if (heroVideo.readyState >= 3) tryPlay();
     }
   }
