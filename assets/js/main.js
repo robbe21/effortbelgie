@@ -42,13 +42,14 @@
     reveals.forEach(function (el) { el.classList.add("in"); });
   }
 
-  /* ---- Hero video (respect reduced motion + fade in) ---- */
+  /* ---- Hero video: mobile only (desktop shows the static photo) ---- */
   var heroVideo = doc.querySelector(".hero__media video");
   if (heroVideo) {
     var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) {
+    var mobile = !window.matchMedia || window.matchMedia("(max-width: 879px)").matches;
+    if (reduce || !mobile) {
+      // Desktop / reduced-motion: never load or play — the static hero photo shows instead.
       heroVideo.removeAttribute("autoplay");
-      heroVideo.pause && heroVideo.pause();
     } else {
       var tryPlay = function () {
         heroVideo.classList.add("is-ready");
@@ -57,6 +58,7 @@
       };
       heroVideo.addEventListener("canplay", tryPlay);
       heroVideo.addEventListener("loadeddata", tryPlay);
+      heroVideo.load();
       if (heroVideo.readyState >= 3) tryPlay();
     }
   }
