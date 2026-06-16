@@ -200,16 +200,6 @@ body.nav-open .nav-mobile { transform: translateY(0); opacity: 1; pointer-events
     linear-gradient(to top, rgba(10,10,11,.96) 2%, rgba(10,10,11,.30) 45%, rgba(10,10,11,.55) 100%),
     radial-gradient(90% 60% at 15% 100%, rgba(255,45,45,.18), transparent 60%);
 }
-/* On wider screens the headline sits left over a brighter part of the wide video —
-   anchor a stronger scrim on the left so the type stays crisp, keep the right side open. */
-@media (min-width: 880px) {
-  .hero__media::after {
-    background:
-      linear-gradient(95deg, rgba(10,10,11,.95) 0%, rgba(10,10,11,.72) 32%, rgba(10,10,11,.20) 64%, rgba(10,10,11,.45) 100%),
-      linear-gradient(to top, rgba(10,10,11,.88), transparent 52%),
-      radial-gradient(58% 92% at 6% 58%, rgba(255,45,45,.15), transparent 62%);
-  }
-}
 .hero__inner { position: relative; z-index: 2; width: 100%; padding-bottom: clamp(40px, 9vw, 80px); }
 .hero h1 { font-size: clamp(3rem, 16vw, 8.5rem); }
 .hero h1 .stroke { color: transparent; -webkit-text-stroke: 1.5px var(--bone); text-stroke: 1.5px var(--bone); }
