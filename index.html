@@ -1,22 +1,30 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl-BE">
 <head>
   <meta charset="UTF-8" />
   <script>document.documentElement.classList.add('js');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Effort België — CrossFit & functionele training in Kapellen</title>
-  <meta name="description" content="Make an effort, not an excuse. CrossFit, Olympic lifting, Hyrox & personal training in kleine groepen onder begeleiding van ervaren coaches. Boek je gratis proefles in Kapellen." />
+  <title>CrossFit Kapellen | Effort België — gratis proefles</title>
+  <meta name="description" content="CrossFit, Hyrox & personal training in Kapellen. Kleine groepen, ervaren coaches, alles op jouw niveau. Je eerste les is gratis & vrijblijvend — boek nu." />
   <meta name="theme-color" content="#0a0a0b" />
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="canonical" href="https://effortbelgie.be/" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Effort België — CrossFit & functionele training in Kapellen" />
-  <meta property="og:description" content="Make an effort, not an excuse. Train in kleine groepen onder begeleiding van ervaren coaches. Boek je gratis proefles." />
-  <meta property="og:image" content="assets/img/og.jpg" />
+  <meta property="og:site_name" content="Effort België" />
+  <meta property="og:title" content="CrossFit Kapellen | Effort België — gratis proefles" />
+  <meta property="og:description" content="CrossFit, Hyrox & personal training in Kapellen. Kleine groepen, ervaren coaches, alles op jouw niveau. Boek je gratis proefles." />
+  <meta property="og:url" content="https://effortbelgie.be/" />
+  <meta property="og:image" content="https://effortbelgie.be/assets/img/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="669" />
+  <meta property="og:image:alt" content="Effort België — CrossFit & Hyrox box in Kapellen" />
   <meta property="og:locale" content="nl_BE" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CrossFit Kapellen | Effort België — gratis proefles" />
+  <meta name="twitter:description" content="CrossFit, Hyrox & personal training in Kapellen. Boek je gratis & vrijblijvende proefles." />
+  <meta name="twitter:image" content="https://effortbelgie.be/assets/img/og.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,23 +34,58 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SportsActivityLocation",
-    "name": "Effort België",
-    "description": "CrossFit, Olympic weightlifting, Hyrox en personal training in Kapellen.",
-    "url": "https://effortbelgie.be/",
-    "email": "Yana@effortbelgie.be",
-    "image": "https://effortbelgie.be/assets/img/og.jpg",
-    "slogan": "Make an effort not an excuse",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Industrielaan 3",
-      "postalCode": "2950",
-      "addressLocality": "Kapellen",
-      "addressCountry": "BE"
-    },
-    "sameAs": [
-      "https://www.instagram.com/effortbelgie/",
-      "https://www.facebook.com/crossfitkapellen"
+    "@graph": [
+      {
+        "@type": ["HealthClub", "SportsActivityLocation"],
+        "@id": "https://effortbelgie.be/#business",
+        "name": "Effort België",
+        "alternateName": "CrossFit Kapellen",
+        "description": "CrossFit, Hyrox, Olympic weightlifting en personal training in kleine groepen in Kapellen, regio Antwerpen-noord. Je hoeft niet fit te zijn om te starten — alles op jouw niveau.",
+        "url": "https://effortbelgie.be/",
+        "logo": "https://effortbelgie.be/assets/img/favicon.svg",
+        "image": "https://effortbelgie.be/assets/img/og.jpg",
+        "email": "Yana@effortbelgie.be",
+        "telephone": "+32478603127",
+        "slogan": "Make an effort, not an excuse",
+        "priceRange": "€60–€150",
+        "currenciesAccepted": "EUR",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Industrielaan 3",
+          "postalCode": "2950",
+          "addressLocality": "Kapellen",
+          "addressRegion": "Antwerpen",
+          "addressCountry": "BE"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 51.3138, "longitude": 4.4341 },
+        "areaServed": ["Kapellen", "Brasschaat", "Ekeren", "Kalmthout", "Stabroek", "Antwerpen-noord"],
+        "openingHoursSpecification": [{
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "description": "Op afspraak"
+        }],
+        "sameAs": [
+          "https://www.instagram.com/effortbelgie/",
+          "https://www.facebook.com/crossfitkapellen",
+          "https://www.crossfit.com/gym/35500"
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://effortbelgie.be/#org",
+        "name": "Effort België",
+        "url": "https://effortbelgie.be/",
+        "logo": "https://effortbelgie.be/assets/img/favicon.svg",
+        "sameAs": ["https://www.instagram.com/effortbelgie/", "https://www.facebook.com/crossfitkapellen"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://effortbelgie.be/#website",
+        "url": "https://effortbelgie.be/",
+        "name": "Effort België",
+        "inLanguage": "nl-BE",
+        "publisher": { "@id": "https://effortbelgie.be/#org" }
+      }
     ]
   }
   </script>
@@ -100,7 +143,7 @@
         <div class="container">
           <p class="eyebrow reveal">CrossFit · Kapellen</p>
           <h1 class="reveal" data-d="1">Make an<br /><span class="stroke">effort</span> <em>not</em><br />an excuse</h1>
-          <p class="lead hero__sub reveal" data-d="2">Sterker worden, grenzen verleggen en je beter in je vel voelen — fysiek én mentaal. In kleine groepen, met ervaren coaches.</p>
+          <p class="lead hero__sub reveal" data-d="2">Sterker worden, grenzen verleggen en je beter in je vel voelen — fysiek én mentaal. In kleine groepen, met ervaren coaches. <strong>Je hoeft niet fit te zijn om te starten — je hoeft alleen te beginnen.</strong></p>
           <div class="hero__cta reveal" data-d="3">
             <a class="btn btn--primary btn--lg" href="https://www.wodapp.nl/free-trial/p/40513" target="_blank" rel="noopener">Boek je gratis proefles</a>
             <a class="btn btn--ghost btn--lg" href="aanbod.html">Bekijk het aanbod</a>
@@ -208,7 +251,7 @@
     <section class="section">
       <div class="container">
         <div class="cta-band reveal">
-          <div class="cta-band__bg"><img src="assets/img/team.jpg" alt="Atleten samen in de box" loading="lazy" /></div>
+          <div class="cta-band__bg"><img src="assets/img/team.jpg" alt="" loading="lazy" /></div>
           <div class="cta-band__inner">
             <p class="eyebrow">It's a team effort</p>
             <h2 class="mt-s">Een plek waar iedereen <span class="text-red">zichzelf</span> kan zijn</h2>
@@ -309,6 +352,10 @@
                 <div><div class="k">E-mail</div><div class="v"><a href="mailto:Yana@effortbelgie.be">Yana@effortbelgie.be</a></div></div>
               </div>
               <div class="info">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.5a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg>
+                <div><div class="k">Telefoon</div><div class="v"><a href="tel:+32478603127">0478 60 31 27</a></div></div>
+              </div>
+              <div class="info">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
                 <div><div class="k">Open</div><div class="v">Ma–Zo: op afspraak</div></div>
               </div>
@@ -365,6 +412,7 @@
           <h4>Contact</h4>
           <ul>
             <li><a href="https://www.google.com/maps?q=Industrielaan+3,+2950+Kapellen" target="_blank" rel="noopener">Industrielaan 3<br />2950 Kapellen</a></li>
+            <li><a href="tel:+32478603127">0478 60 31 27</a></li>
             <li><a href="mailto:Yana@effortbelgie.be">Yana@effortbelgie.be</a></li>
             <li>Ma–Zo: op afspraak</li>
           </ul>
