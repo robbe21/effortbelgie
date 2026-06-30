@@ -66,4 +66,16 @@
   /* ---- Footer year ---- */
   var yr = doc.getElementById("year");
   if (yr) yr.textContent = String(new Date().getFullYear());
+
+  /* ---- GA4: proefles-conversie (klik op een WodApp-proefleslink) ---- */
+  doc.addEventListener("click", function (e) {
+    var link = e.target && e.target.closest ? e.target.closest('a[href*="wodapp.nl"]') : null;
+    if (link && typeof window.gtag === "function") {
+      window.gtag("event", "proefles_klik", {
+        link_url: link.href,
+        link_text: (link.textContent || "").trim().slice(0, 80),
+        page_path: location.pathname
+      });
+    }
+  }, true);
 })();
