@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Effort — print je gratis-les coupons (A4)</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/img/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --ink:#0a0a0b; --charcoal:#1b1b1f; --fog:#6d6d76; --line:#d9d6cf;
+      --paper:#ffffff; --cream:#faf8f4; --red:#d45751; --red-deep:#b23f39;
+      --ff-display:"Anton",Impact,sans-serif; --ff-label:"Oswald","Arial Narrow",sans-serif; --ff-body:"Inter",system-ui,sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;}
+    html{-webkit-text-size-adjust:100%;}
+    body{font-family:var(--ff-body);background:#3a3b3e;color:var(--ink);line-height:1.4;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    svg{display:block;}
+
+    /* ---------- Screen-only toolbar ---------- */
+    .toolbar{
+      position:sticky;top:0;z-index:10;background:#101012;color:#f5f3ef;
+      display:flex;flex-wrap:wrap;align-items:center;gap:14px;
+      padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.12);
+    }
+    .toolbar h1{font-family:var(--ff-display);text-transform:uppercase;font-size:1.05rem;letter-spacing:.02em;font-weight:400;}
+    .toolbar .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red);margin-left:3px;vertical-align:middle;}
+    .toolbar p{font-size:.82rem;color:#b6b6bd;max-width:62ch;}
+    .toolbar code{background:rgba(255,255,255,.1);padding:1px 6px;border-radius:4px;font-size:.8rem;color:#fff;}
+    .toolbar .spacer{flex:1;}
+    .printbtn{
+      font-family:var(--ff-label);text-transform:uppercase;letter-spacing:.12em;font-weight:600;font-size:.85rem;
+      background:var(--red);color:#fff;border:0;border-radius:5px;padding:11px 20px;cursor:pointer;white-space:nowrap;
+    }
+    .printbtn:hover{background:var(--red-deep);}
+
+    /* ---------- A4 sheet ---------- */
+    .sheet{
+      width:210mm;min-height:297mm;margin:20px auto;background:var(--paper);
+      padding:11mm 11mm;display:flex;flex-direction:column;
+      box-shadow:0 10px 40px rgba(0,0,0,.45);
+    }
+
+    /* ---------- Coupon ticket ---------- */
+    .coupon{
+      flex:1;display:flex;position:relative;overflow:hidden;
+      border:1.4px solid var(--ink);border-radius:3mm;background:var(--cream);
+    }
+    /* red brand rail */
+    .coupon__rail{
+      flex:0 0 7mm;background:var(--red);position:relative;overflow:hidden;
+    }
+    .coupon__rail span{
+      position:absolute;top:50%;left:50%;
+      transform:translate(-50%,-50%) rotate(-90deg);transform-origin:center;
+      white-space:nowrap;
+      font-family:var(--ff-label);text-transform:uppercase;letter-spacing:.2em;
+      font-size:2.2mm;font-weight:600;color:rgba(255,255,255,.95);
+    }
+    .coupon__body{flex:1;padding:5mm 7mm 4mm;display:flex;flex-direction:column;}
+    .coupon__top{display:flex;align-items:baseline;justify-content:space-between;gap:8mm;}
+    .wordmark{font-family:var(--ff-display);text-transform:uppercase;font-size:5.4mm;letter-spacing:.02em;line-height:1;color:var(--ink);}
+    .wordmark b{font-weight:400;}
+    .wordmark i{font-style:normal;color:var(--red);}
+    .coupon__loc{font-family:var(--ff-label);text-transform:uppercase;letter-spacing:.18em;font-size:2.5mm;color:var(--fog);text-align:right;}
+    .coupon__kicker{font-family:var(--ff-label);text-transform:uppercase;letter-spacing:.26em;font-size:2.7mm;font-weight:600;color:var(--red-deep);margin-top:3mm;}
+    .coupon__big{font-family:var(--ff-display);text-transform:uppercase;line-height:.86;font-size:12.5mm;color:var(--ink);margin-top:1mm;}
+    .coupon__big em{font-style:normal;color:var(--red);}
+    .coupon__sub{font-size:2.85mm;color:#3c3c40;margin-top:2mm;max-width:124mm;line-height:1.42;}
+    .coupon__sub b{font-weight:600;color:var(--ink);}
+    .gift{display:flex;gap:8mm;margin-top:auto;padding-top:3mm;}
+    .gift__f{flex:1;}
+    .gift__lbl{font-family:var(--ff-label);text-transform:uppercase;letter-spacing:.2em;font-size:2.4mm;color:var(--fog);}
+    .gift__line{height:4.5mm;border-bottom:1px solid var(--ink);}
+    .coupon__terms{font-size:2.1mm;line-height:1.4;color:var(--fog);margin-top:2.5mm;}
+
+    /* perforated stub with QR */
+    .coupon__stub{
+      flex:0 0 40mm;border-left:1.6px dashed var(--ink);
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      padding:5mm 4mm;text-align:center;background:#fff;
+    }
+    .coupon__scan{font-family:var(--ff-label);text-transform:uppercase;letter-spacing:.18em;font-size:2.5mm;font-weight:600;color:var(--ink);}
+    .qr{width:27mm;height:27mm;margin:3mm 0;}
+    .coupon__url{font-family:var(--ff-label);text-transform:uppercase;letter-spacing:.07em;font-size:2.5mm;font-weight:600;color:var(--red-deep);}
+    .coupon__free{font-family:var(--ff-label);text-transform:uppercase;letter-spacing:.16em;font-size:2.2mm;color:var(--fog);margin-top:1.5mm;}
+
+    /* cut guide between coupons */
+    .cut{display:flex;align-items:center;gap:6px;height:6mm;color:#9a978f;}
+    .cut::before,.cut::after{content:"";flex:1;border-top:1px dashed #b7b4ac;}
+    .cut svg{width:4mm;height:4mm;}
+
+    /* ---------- Print ---------- */
+    @page{size:A4;margin:0;}
+    @media print{
+      body{background:#fff;}
+      .toolbar{display:none !important;}
+      .sheet{margin:0;box-shadow:none;width:auto;min-height:auto;height:100vh;}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <h1>Effort<span class="dot"></span> — gratis-les coupons</h1>
+    <p>Print op A4 (geen marges / "werkelijke grootte") en knip op de stippellijnen. 4 coupons per blad — print meerdere exemplaren voor meer. QR linkt naar <code>effortbelgie.be/welkom</code> — pas die URL aan in <code>assets/img/qr-welkom.svg</code> via het genereer-script vóór je print, als de pagina nog niet live staat.</p>
+    <div class="spacer"></div>
+    <button class="printbtn" onclick="window.print()">Print / Bewaar als PDF</button>
+  </div>
+
+  <!-- QR (gegenereerd voor https://effortbelgie.be/welkom) — 1× gedefinieerd, hergebruikt per coupon -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="qr" viewBox="0 0 33 33">
+      <path fill="#ffffff" d="M0 0h33v33H0z"/>
+      <path stroke="#0a0a0b" d="M2 2.5h7m1 0h1m1 0h1m2 0h3m2 0h3m1 0h7M2 3.5h1m5 0h1m1 0h1m1 0h1m1 0h2m2 0h3m1 0h1m1 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m2 0h1m2 0h1m3 0h1m1 0h1m3 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m1 0h1m1 0h3m1 0h2m1 0h2m3 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m3 0h1m1 0h1m1 0h1m1 0h1m2 0h1m2 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m2 0h2m1 0h2m1 0h5m2 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 9.5h4m3 0h5M2 10.5h1m1 0h2m1 0h3m1 0h3m1 0h1m1 0h1m1 0h2m3 0h1m2 0h1m1 0h2M3 11.5h2m1 0h1m2 0h1m2 0h6m3 0h1m2 0h3m3 0h1M2 12.5h3m1 0h1m1 0h3m3 0h2m2 0h1m1 0h1m5 0h1m1 0h2M2 13.5h1m1 0h1m2 0h1m2 0h4m4 0h1m1 0h3m2 0h2m3 0h1M2 14.5h1m2 0h7m2 0h1m1 0h2m1 0h1m7 0h2M2 15.5h1m3 0h1m4 0h1m4 0h1m1 0h2m1 0h1m1 0h2m3 0h3M2 16.5h3m3 0h1m1 0h2m2 0h2m1 0h2m1 0h5m1 0h1m1 0h3M2 17.5h4m4 0h5m1 0h1m1 0h1m4 0h1m1 0h2m2 0h1M4 18.5h1m1 0h4m1 0h4m1 0h3m1 0h4m1 0h3m1 0h1M3 19.5h1m3 0h1m5 0h1m2 0h1m1 0h2m2 0h1m2 0h1m1 0h3M2 20.5h1m4 0h5m3 0h4m3 0h2m4 0h1M4 21.5h2m3 0h1m1 0h2m2 0h2m2 0h1m1 0h1m2 0h1m3 0h1M3 22.5h1m2 0h1m1 0h4m3 0h2m1 0h11M10 23.5h1m2 0h1m3 0h4m1 0h1m3 0h5M2 24.5h7m1 0h1m1 0h2m2 0h2m3 0h2m1 0h1m1 0h2m1 0h1M2 25.5h1m5 0h1m1 0h1m1 0h2m1 0h3m2 0h1m1 0h1m3 0h2M2 26.5h1m1 0h3m1 0h1m5 0h1m4 0h1m2 0h5m1 0h1m1 0h1M2 27.5h1m1 0h3m1 0h1m1 0h6m6 0h2m1 0h3m1 0h1M2 28.5h1m1 0h3m1 0h1m1 0h1m2 0h1m1 0h1m3 0h2m1 0h1m2 0h1m2 0h1m1 0h1M2 29.5h1m5 0h1m2 0h3m1 0h4m3 0h1m2 0h3m1 0h1M2 30.5h7m1 0h2m2 0h2m1 0h1m2 0h4m5 0h1"/>
+    </symbol>
+    <symbol id="scissors" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
+        <path d="M20 4 8.12 15.88M14.47 14.48 20 20M8.12 8.12 12 12"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <div class="sheet">
+
+    <!-- COUPON TEMPLATE (×4) -->
+    <article class="coupon">
+      <div class="coupon__rail"><span>Make an effort · not an excuse</span></div>
+      <div class="coupon__body">
+        <div class="coupon__top">
+          <div class="wordmark"><b>Effort</b><i>●</i></div>
+          <div class="coupon__loc">CrossFit · HYWOD<br/>Kapellen</div>
+        </div>
+        <p class="coupon__kicker">Cadeau van een lid</p>
+        <h2 class="coupon__big">1 <em>gratis</em> les</h2>
+        <p class="coupon__sub"><b>Een gratis CrossFit-proefles, helemaal vrijblijvend.</b> Nooit eerder getraind? Perfect — alles gaat op jouw niveau.</p>
+        <div class="gift">
+          <div class="gift__f"><div class="gift__lbl">Voor</div><div class="gift__line"></div></div>
+          <div class="gift__f"><div class="gift__lbl">Van</div><div class="gift__line"></div></div>
+        </div>
+        <p class="coupon__terms">Eén gratis proefles (WOD of HY*WOD) per nieuwe deelnemer · enkel op afspraak · niet inwisselbaar voor geld · Industrielaan 3, 2950 Kapellen · 0478 60 31 27</p>
+      </div>
+      <div class="coupon__stub">
+        <div class="coupon__scan">Scan &amp; boek</div>
+        <svg class="qr"><use href="#qr"/></svg>
+        <div class="coupon__url">effortbelgie.be/welkom</div>
+        <div class="coupon__free">Gratis &amp; vrijblijvend</div>
+      </div>
+    </article>
+
+    <div class="cut"><svg><use href="#scissors"/></svg></div>
+
+    <article class="coupon">
+      <div class="coupon__rail"><span>Make an effort · not an excuse</span></div>
+      <div class="coupon__body">
+        <div class="coupon__top">
+          <div class="wordmark"><b>Effort</b><i>●</i></div>
+          <div class="coupon__loc">CrossFit · HYWOD<br/>Kapellen</div>
+        </div>
+        <p class="coupon__kicker">Cadeau van een lid</p>
+        <h2 class="coupon__big">1 <em>gratis</em> les</h2>
+        <p class="coupon__sub"><b>Een gratis CrossFit-proefles, helemaal vrijblijvend.</b> Nooit eerder getraind? Perfect — alles gaat op jouw niveau.</p>
+        <div class="gift">
+          <div class="gift__f"><div class="gift__lbl">Voor</div><div class="gift__line"></div></div>
+          <div class="gift__f"><div class="gift__lbl">Van</div><div class="gift__line"></div></div>
+        </div>
+        <p class="coupon__terms">Eén gratis proefles (WOD of HY*WOD) per nieuwe deelnemer · enkel op afspraak · niet inwisselbaar voor geld · Industrielaan 3, 2950 Kapellen · 0478 60 31 27</p>
+      </div>
+      <div class="coupon__stub">
+        <div class="coupon__scan">Scan &amp; boek</div>
+        <svg class="qr"><use href="#qr"/></svg>
+        <div class="coupon__url">effortbelgie.be/welkom</div>
+        <div class="coupon__free">Gratis &amp; vrijblijvend</div>
+      </div>
+    </article>
+
+    <div class="cut"><svg><use href="#scissors"/></svg></div>
+
+    <article class="coupon">
+      <div class="coupon__rail"><span>Make an effort · not an excuse</span></div>
+      <div class="coupon__body">
+        <div class="coupon__top">
+          <div class="wordmark"><b>Effort</b><i>●</i></div>
+          <div class="coupon__loc">CrossFit · HYWOD<br/>Kapellen</div>
+        </div>
+        <p class="coupon__kicker">Cadeau van een lid</p>
+        <h2 class="coupon__big">1 <em>gratis</em> les</h2>
+        <p class="coupon__sub"><b>Een gratis CrossFit-proefles, helemaal vrijblijvend.</b> Nooit eerder getraind? Perfect — alles gaat op jouw niveau.</p>
+        <div class="gift">
+          <div class="gift__f"><div class="gift__lbl">Voor</div><div class="gift__line"></div></div>
+          <div class="gift__f"><div class="gift__lbl">Van</div><div class="gift__line"></div></div>
+        </div>
+        <p class="coupon__terms">Eén gratis proefles (WOD of HY*WOD) per nieuwe deelnemer · enkel op afspraak · niet inwisselbaar voor geld · Industrielaan 3, 2950 Kapellen · 0478 60 31 27</p>
+      </div>
+      <div class="coupon__stub">
+        <div class="coupon__scan">Scan &amp; boek</div>
+        <svg class="qr"><use href="#qr"/></svg>
+        <div class="coupon__url">effortbelgie.be/welkom</div>
+        <div class="coupon__free">Gratis &amp; vrijblijvend</div>
+      </div>
+    </article>
+
+    <div class="cut"><svg><use href="#scissors"/></svg></div>
+
+    <article class="coupon">
+      <div class="coupon__rail"><span>Make an effort · not an excuse</span></div>
+      <div class="coupon__body">
+        <div class="coupon__top">
+          <div class="wordmark"><b>Effort</b><i>●</i></div>
+          <div class="coupon__loc">CrossFit · HYWOD<br/>Kapellen</div>
+        </div>
+        <p class="coupon__kicker">Cadeau van een lid</p>
+        <h2 class="coupon__big">1 <em>gratis</em> les</h2>
+        <p class="coupon__sub"><b>Een gratis CrossFit-proefles, helemaal vrijblijvend.</b> Nooit eerder getraind? Perfect — alles gaat op jouw niveau.</p>
+        <div class="gift">
+          <div class="gift__f"><div class="gift__lbl">Voor</div><div class="gift__line"></div></div>
+          <div class="gift__f"><div class="gift__lbl">Van</div><div class="gift__line"></div></div>
+        </div>
+        <p class="coupon__terms">Eén gratis proefles (WOD of HY*WOD) per nieuwe deelnemer · enkel op afspraak · niet inwisselbaar voor geld · Industrielaan 3, 2950 Kapellen · 0478 60 31 27</p>
+      </div>
+      <div class="coupon__stub">
+        <div class="coupon__scan">Scan &amp; boek</div>
+        <svg class="qr"><use href="#qr"/></svg>
+        <div class="coupon__url">effortbelgie.be/welkom</div>
+        <div class="coupon__free">Gratis &amp; vrijblijvend</div>
+      </div>
+    </article>
+
+  </div>
+</body>
+</html>
