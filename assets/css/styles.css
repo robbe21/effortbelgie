@@ -358,6 +358,16 @@ body.nav-open .nav-mobile { transform: translateY(0); opacity: 1; pointer-events
 .schedule__table tr { border-bottom: 1px solid var(--line-2); }
 .schedule__note { margin-top: 14px; font-size: .85rem; color: var(--fog-2); }
 
+/* ----- Reviews ----- */
+.google-rating { margin-top: 14px; color: var(--fog); }
+.stars { color: var(--red); letter-spacing: .18em; }
+.grid--reviews { margin-top: 6px; }
+@media (min-width: 880px) { .grid--reviews { grid-template-columns: repeat(2, 1fr); } }
+.review-quote { color: var(--bone); line-height: 1.65; }
+.review-quote::before { content: "\201C"; color: var(--red); font-family: var(--ff-display); font-size: 1.5em; line-height: 0; margin-right: 5px; vertical-align: -0.3em; }
+.review-meta { margin-top: 14px; font-family: var(--ff-label); text-transform: uppercase; letter-spacing: .12em; font-size: .72rem; color: var(--fog-2); }
+.reviews-link { margin-top: 28px; text-align: center; }
+
 /* ----- Embedded boekingsmodule (WodApp) ----- */
 .booking-frame { border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: #fff; box-shadow: var(--shadow); }
 .booking-frame iframe { display: block; width: 100%; height: 720px; border: 0; }
