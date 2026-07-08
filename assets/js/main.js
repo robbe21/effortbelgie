@@ -69,7 +69,7 @@
 
   /* ---- GA4: proefles-conversie (klik op een WodApp-proefleslink) ---- */
   doc.addEventListener("click", function (e) {
-    var link = e.target && e.target.closest ? e.target.closest('a[href*="wodapp.nl"]') : null;
+    var link = e.target && e.target.closest ? e.target.closest('a[href*="wodapp.nl"], a[href*="#boek"]') : null;
     if (link && typeof window.gtag === "function") {
       window.gtag("event", "proefles_klik", {
         link_url: link.href,
