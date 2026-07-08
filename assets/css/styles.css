@@ -349,6 +349,15 @@ body.nav-open .nav-mobile { transform: translateY(0); opacity: 1; pointer-events
 .map-frame { border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; min-height: 260px; background: var(--ink-2); }
 .map-frame iframe { width: 100%; height: 100%; min-height: 260px; border: 0; filter: grayscale(1) invert(.9) contrast(.9); }
 
+/* ----- Lesrooster ----- */
+.schedule { margin-bottom: 30px; }
+.schedule h3 { margin-bottom: 16px; }
+.schedule__table { width: 100%; border-collapse: collapse; }
+.schedule__table th { font-family: var(--ff-label); text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; font-weight: 500; color: var(--bone); text-align: left; padding: 12px 14px 12px 0; white-space: nowrap; vertical-align: top; width: 1%; }
+.schedule__table td { padding: 9px 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.schedule__table tr { border-bottom: 1px solid var(--line-2); }
+.schedule__note { margin-top: 14px; font-size: .85rem; color: var(--fog-2); }
+
 /* ----- Embedded boekingsmodule (WodApp) ----- */
 .booking-frame { border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: #fff; box-shadow: var(--shadow); }
 .booking-frame iframe { display: block; width: 100%; height: 720px; border: 0; }
