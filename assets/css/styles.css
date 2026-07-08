@@ -387,9 +387,6 @@ body.nav-open .nav-mobile { transform: translateY(0); opacity: 1; pointer-events
 .page-hero .container { position: relative; z-index: 2; }
 .page-hero .eyebrow { margin-bottom: 16px; }
 .page-hero p { margin-top: 16px; max-width: 56ch; }
-.crumbs { font-family: var(--ff-label); text-transform: uppercase; letter-spacing: .14em; font-size: .7rem; color: var(--fog-2); margin-bottom: 22px; }
-.crumbs a:hover { color: var(--red); }
-.crumbs span { color: var(--red); }
 
 /* ----- Ticket (referral / welkom) ----- */
 .ticket {
