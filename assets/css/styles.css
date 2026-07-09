@@ -369,8 +369,10 @@ body.nav-open .nav-mobile { transform: translateY(0); opacity: 1; pointer-events
 .reviews-link { margin-top: 28px; text-align: center; }
 
 /* ----- Embedded boekingsmodule (WodApp) ----- */
-.booking-frame { max-width: 760px; margin-inline: auto; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: #fff; box-shadow: var(--shadow); }
-.booking-frame iframe { display: block; width: 100%; height: 760px; border: 0; }
+#boek, #rooster { scroll-margin-top: calc(var(--header-h) + 18px); }
+.booking-frame { position: relative; max-width: 760px; margin-inline: auto; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: var(--ink-2); box-shadow: var(--shadow); }
+.booking-frame::before { content: "Boekingsmodule wordt geladen…"; position: absolute; inset: 0; display: grid; place-items: center; color: var(--fog); font-family: var(--ff-label); text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; }
+.booking-frame iframe { position: relative; z-index: 1; display: block; width: 100%; height: 760px; border: 0; }
 .booking-fallback { max-width: 760px; margin: 14px auto 0; text-align: center; font-size: .85rem; color: var(--fog-2); }
 .booking-fallback a { text-decoration: underline; }
 @media (max-width: 640px) { .booking-frame iframe { height: 680px; } }
