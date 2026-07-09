@@ -368,6 +368,15 @@ body.nav-open .nav-mobile { transform: translateY(0); opacity: 1; pointer-events
 .review-meta { margin-top: 14px; font-family: var(--ff-label); text-transform: uppercase; letter-spacing: .12em; font-size: .72rem; color: var(--fog-2); }
 .reviews-link { margin-top: 28px; text-align: center; }
 
+/* ----- Ledenmuur ----- */
+.grid--members { margin-top: 6px; }
+@media (min-width: 700px) { .grid--members { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .grid--members { grid-template-columns: repeat(3, 1fr); } }
+.member-tag { color: var(--red); border-color: rgba(212,87,81,.4); }
+.member-meta { font-family: var(--ff-label); text-transform: uppercase; letter-spacing: .1em; font-size: .72rem; color: var(--fog-2); margin-top: 8px; }
+.members-note { margin-top: 30px; text-align: center; color: var(--fog-2); font-size: .9rem; }
+.members-note a { text-decoration: underline; }
+
 /* ----- Embedded boekingsmodule (WodApp) ----- */
 #boek, #rooster { scroll-margin-top: calc(var(--header-h) + 18px); }
 .booking-frame { position: relative; max-width: 760px; margin-inline: auto; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: var(--ink-2); box-shadow: var(--shadow); }
