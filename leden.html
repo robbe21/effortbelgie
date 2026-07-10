@@ -57,7 +57,7 @@
   }
   </script>
   <style>
-    .polaroid-grid { display: grid; gap: clamp(28px, 5vw, 48px) clamp(20px, 3vw, 32px); grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+    .polaroid-grid { display: grid; gap: clamp(28px, 5vw, 48px) clamp(20px, 3vw, 32px); grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
     .member { display: flex; flex-direction: column; }
     .polaroid { background: #f5f3ef; padding: 12px 12px 8px; border-radius: 2px; box-shadow: 0 18px 45px -14px rgba(0,0,0,.8); transform: rotate(var(--tilt, -2deg)); transition: transform .35s var(--ease); position: relative; margin-bottom: 22px; }
     .member:hover .polaroid { transform: rotate(0deg) translateY(-6px); }
@@ -70,8 +70,6 @@
     .member__body .member-meta { margin-top: 4px; margin-bottom: 10px; }
     .member__body p { font-size: .95rem; }
     .member__quote { color: var(--bone); font-style: italic; }
-    .polaroid--solo { align-self: center; margin-bottom: 0; }
-    .polaroid--solo:hover { transform: rotate(0deg) translateY(-6px); }
   </style>
 </head>
 <body>
@@ -87,6 +85,7 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="team.html">Team</a></li>
+          <li><a href="leden.html" aria-current="page">Leden</a></li>
           <li><a href="aanbod.html">Aanbod</a></li>
           <li><a href="prijzen.html">Prijzen</a></li>
           <li><a href="get-started.html">Get started</a></li>
@@ -101,6 +100,7 @@
     <ol>
       <li><a href="index.html">Home</a></li>
       <li><a href="team.html">Team</a></li>
+      <li><a href="leden.html" aria-current="page">Leden</a></li>
       <li><a href="aanbod.html">Aanbod</a></li>
       <li><a href="prijzen.html">Prijzen</a></li>
       <li><a href="get-started.html">Get started</a></li>
@@ -160,10 +160,6 @@
               <a class="link-arrow mt-m" href="https://www.instagram.com/effortbelgie/p/DWj33mIDECE/" target="_blank" rel="noopener">Bekijk op Instagram <span>→</span></a>
             </div>
           </article>
-          <figure class="polaroid polaroid--solo reveal" style="--tilt:3.1deg">
-            <img src="assets/img/chalk.jpg?v=6" alt="" loading="lazy" />
-            <figcaption>chalk. altijd chalk.</figcaption>
-          </figure>
           <article class="member reveal">
             <figure class="polaroid" style="--tilt:2.4deg">
               <img src="assets/img/leden/julie.jpg" alt="Julie, Member of the Month februari 2026 bij Effort" loading="lazy" width="680" height="850" />
@@ -200,10 +196,6 @@
               <a class="link-arrow mt-m" href="https://www.instagram.com/effortbelgie/p/DTNXsxvjGjr/" target="_blank" rel="noopener">Bekijk op Instagram <span>→</span></a>
             </div>
           </article>
-          <figure class="polaroid polaroid--solo reveal" style="--tilt:-3.2deg">
-            <img src="assets/img/class-group.jpg?v=6" alt="" loading="lazy" />
-            <figcaption>de crew na de wod</figcaption>
-          </figure>
           <article class="member reveal">
             <figure class="polaroid" style="--tilt:-1.8deg">
               <img src="assets/img/leden/peter.jpg" alt="Peter, Member of the Month november 2025 bij Effort" loading="lazy" width="680" height="850" />
@@ -228,10 +220,6 @@
               <a class="link-arrow mt-m" href="https://www.instagram.com/effortbelgie/p/DPy2J1kDCh_/" target="_blank" rel="noopener">Bekijk op Instagram <span>→</span></a>
             </div>
           </article>
-          <figure class="polaroid polaroid--solo reveal" style="--tilt:2.8deg">
-            <img src="assets/img/gym.jpg?v=6" alt="" loading="lazy" />
-            <figcaption>thuisbasis: Industrielaan 3</figcaption>
-          </figure>
           <article class="member reveal" data-d="2">
             <figure class="polaroid" style="--tilt:-2.4deg">
               <img src="assets/img/leden/joke.jpg" alt="Joke, Member of the Month september 2025 bij Effort" loading="lazy" width="680" height="850" />
