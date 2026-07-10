@@ -41,7 +41,7 @@
   <meta name="twitter:image" content="https://effortbelgie.be/assets/img/og.jpg?v=2" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600&family=Inter:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css?v=10" />
 
   <script type="application/ld+json">
@@ -56,6 +56,22 @@
     ]
   }
   </script>
+  <style>
+    .polaroid-grid { display: grid; gap: clamp(28px, 5vw, 48px) clamp(20px, 3vw, 32px); grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+    .member { display: flex; flex-direction: column; }
+    .polaroid { background: #f5f3ef; padding: 12px 12px 8px; border-radius: 2px; box-shadow: 0 18px 45px -14px rgba(0,0,0,.8); transform: rotate(var(--tilt, -2deg)); transition: transform .35s var(--ease); position: relative; margin-bottom: 22px; }
+    .member:hover .polaroid { transform: rotate(0deg) translateY(-6px); }
+    .polaroid::before { content: ""; position: absolute; top: -12px; left: 50%; width: 92px; height: 26px; transform: translateX(-50%) rotate(-3deg); background: rgba(212, 87, 81, .35); border-left: 1px dashed rgba(255,255,255,.35); border-right: 1px dashed rgba(255,255,255,.35); }
+    .polaroid__ph { aspect-ratio: 1/1; display: grid; place-items: center; background: radial-gradient(120% 120% at 20% 10%, #e0736c, #b23f39); color: #f5f3ef; font-family: var(--ff-display); font-size: clamp(4rem, 10vw, 6rem); text-transform: uppercase; }
+    .polaroid img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+    .polaroid figcaption { font-family: "Caveat", cursive; font-size: 1.5rem; color: #2b2b2e; text-align: center; padding-top: 6px; transform: rotate(-1deg); }
+    .member__body h3 { font-size: 1.5rem; }
+    .member__body .member-meta { margin-top: 4px; margin-bottom: 10px; }
+    .member__body p { font-size: .95rem; }
+    .member__quote { color: var(--bone); font-style: italic; }
+    .polaroid--solo { align-self: center; margin-bottom: 0; }
+    .polaroid--solo:hover { transform: rotate(0deg) translateY(-6px); }
+  </style>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -106,69 +122,126 @@
 
     <section class="section">
       <div class="container">
-        <div class="grid grid--members">
-          <article class="card reveal">
-            <span class="tag member-tag">Mei 2026</span>
-            <h3 class="mt-s">Tom</h3>
-            <p class="member-meta">48 · dierenarts · vader van 5 kids en 3 hondjes</p>
-            <p class="mt-s">Komt als vader van vijf regelmatig met een dad joke af. Naast werken en trainen supportert hij voor rood en wit: verstand op nul, pintje erbij en de batterij weer opladen.</p>
-            <a class="link-arrow mt-m" href="https://www.instagram.com/p/DZ7lSHdEV2B/" target="_blank" rel="noopener">Bekijk op Instagram <span>→</span></a>
+        <div class="polaroid-grid">
+          <article class="member reveal">
+            <figure class="polaroid" style="--tilt:-2.2deg">
+              <div class="polaroid__ph">T</div>
+              <figcaption>mei 2026</figcaption>
+            </figure>
+            <div class="member__body">
+              <h3>Tom</h3>
+              <p class="member-meta">48 · dierenarts · vader van 5 (en 3 hondjes)</p>
+              <p>Met vijf kids in huis is een uurtje box bijna vakantie. Tom komt regelmatig met een dad joke af en supportert daarnaast voor rood en wit: verstand op nul, pintje erbij, batterij weer opgeladen.</p>
+              <a class="link-arrow mt-m" href="https://www.instagram.com/p/DZ7lSHdEV2B/" target="_blank" rel="noopener">Bekijk op Instagram <span>→</span></a>
+            </div>
           </article>
-          <article class="card reveal" data-d="1">
-            <span class="tag member-tag">April 2026</span>
-            <h3 class="mt-s">Matthias</h3>
-            <p class="member-meta">38 · Belgisch leger, na 15 jaar avonturen wereldwijd</p>
-            <p class="mt-s">"Omdat ons Joke zei dat ik het eens moest proberen." Zo begon het. Ondertussen voelt hij zich sterker, fysiek én mentaal.</p>
-            <a class="link-arrow mt-m" href="https://www.instagram.com/p/DZcZmO4CIIe/" target="_blank" rel="noopener">Bekijk op Instagram <span>→</span></a>
+          <article class="member reveal" data-d="1">
+            <figure class="polaroid" style="--tilt:1.8deg">
+              <div class="polaroid__ph">M</div>
+              <figcaption>april 2026</figcaption>
+            </figure>
+            <div class="member__body">
+              <h3>Matthias</h3>
+              <p class="member-meta">38 · Belgisch leger · 15 jaar avonturen wereldwijd</p>
+              <p>“Omdat ons Joke zei dat ik het eens moest proberen.” Zo begon het. Na 15 jaar uithoeken van de wereld traint hij nu gewoon in Kapellen, en voelt hij zich sterker dan ooit, fysiek én mentaal.</p>
+              <a class="link-arrow mt-m" href="https://www.instagram.com/p/DZcZmO4CIIe/" target="_blank" rel="noopener">Bekijk op Instagram <span>→</span></a>
+            </div>
           </article>
-          <article class="card reveal" data-d="2">
-            <span class="tag member-tag">Maart 2026</span>
-            <h3 class="mt-s">Kaat</h3>
-            <p class="member-meta">39 · medisch secretaresse · moeder van 2 dochters</p>
-            <p class="mt-s">Iets stiller van karakter, maar in de les stiekem een echt competitiebeestje.</p>
-            <a class="link-arrow mt-m" href="https://www.instagram.com/effortbelgie/p/DWj33mIDECE/" target="_blank" rel="noopener">Bekijk op Instagram <span>→</span></a>
+          <article class="member reveal" data-d="2">
+            <figure class="polaroid" style="--tilt:-1.6deg">
+              <div class="polaroid__ph">K</div>
+              <figcaption>maart 2026</figcaption>
+            </figure>
+            <div class="member__body">
+              <h3>Kaat</h3>
+              <p class="member-meta">39 · medisch secretaresse · moeder van 2 dochters</p>
+              <p>Iets stiller van karakter, tot de workout begint. Dan blijkt Kaat stiekem een echt competitiebeestje dat niet graag verliest van de klok.</p>
+              <a class="link-arrow mt-m" href="https://www.instagram.com/effortbelgie/p/DWj33mIDECE/" target="_blank" rel="noopener">Bekijk op Instagram <span>→</span></a>
+            </div>
           </article>
-          <article class="card reveal">
-            <span class="tag member-tag">Februari 2026</span>
-            <h3 class="mt-s">Julie</h3>
-            <p class="member-meta">33 · leerkracht OKAN · kunstenares</p>
-            <p class="mt-s">Altijd happy flappy, motivator van de groep én waanzinnig goed met een tekenpotlood.</p>
-            <a class="link-arrow mt-m" href="https://www.instagram.com/effortbelgie/p/DVMBz_ljPw9/" target="_blank" rel="noopener">Bekijk op Instagram <span>→</span></a>
+          <figure class="polaroid polaroid--solo reveal" style="--tilt:3.1deg">
+            <img src="assets/img/chalk.jpg?v=6" alt="" loading="lazy" />
+            <figcaption>chalk. altijd chalk.</figcaption>
+          </figure>
+          <article class="member reveal">
+            <figure class="polaroid" style="--tilt:2.4deg">
+              <div class="polaroid__ph">J</div>
+              <figcaption>februari 2026</figcaption>
+            </figure>
+            <div class="member__body">
+              <h3>Julie</h3>
+              <p class="member-meta">33 · leerkracht OKAN · kunstenares</p>
+              <p>Altijd happy flappy, motivator van elke les én waanzinnig goed met een tekenpotlood. Sinds kort ook “professioneel kikkeroverzetter”, maar dat is een ander verhaal.</p>
+              <a class="link-arrow mt-m" href="https://www.instagram.com/effortbelgie/p/DVMBz_ljPw9/" target="_blank" rel="noopener">Bekijk op Instagram <span>→</span></a>
+            </div>
           </article>
-          <article class="card reveal" data-d="1">
-            <span class="tag member-tag">Januari 2026</span>
-            <h3 class="mt-s">Bianca</h3>
-            <p class="member-meta">37 · dossierbeheerder · powermama</p>
-            <p class="mt-s">Beetje verlegen op het eerste zicht, maar een echte powermama die nu zélf de pot confituur openkrijgt. Haar tip: "Plan je sport in de agenda. Afspraken met jezelf cancel je toch niet?!"</p>
-            <a class="link-arrow mt-m" href="https://www.instagram.com/effortbelgie/p/DTsWqXYjEyt/" target="_blank" rel="noopener">Bekijk op Instagram <span>→</span></a>
+          <article class="member reveal" data-d="1">
+            <figure class="polaroid" style="--tilt:-2.6deg">
+              <div class="polaroid__ph">B</div>
+              <figcaption>januari 2026</figcaption>
+            </figure>
+            <div class="member__body">
+              <h3>Bianca</h3>
+              <p class="member-meta">37 · dossierbeheerder · powermama</p>
+              <p>Beetje verlegen op het eerste gezicht, maar deze powermama krijgt ondertussen zélf de pot confituur open. Planten verzorgen is niet haar talent; volhouden wel. Haar tip: “Plan je sport in de agenda. Afspraken met jezelf cancel je toch niet?!”</p>
+              <a class="link-arrow mt-m" href="https://www.instagram.com/effortbelgie/p/DTsWqXYjEyt/" target="_blank" rel="noopener">Bekijk op Instagram <span>→</span></a>
+            </div>
           </article>
-          <article class="card reveal" data-d="2">
-            <span class="tag member-tag">December 2025</span>
-            <h3 class="mt-s">Joyce</h3>
-            <p class="member-meta">35 · zelfstandig schoonheidsspecialiste · mama van 2</p>
-            <p class="mt-s">In de ochtend in de box, overdag ladyboss in haar eigen salon. Ze ondervond zelf dat veel pijntjes wegblijven door te sporten.</p>
-            <a class="link-arrow mt-m" href="https://www.instagram.com/effortbelgie/p/DTNXsxvjGjr/" target="_blank" rel="noopener">Bekijk op Instagram <span>→</span></a>
+          <article class="member reveal" data-d="2">
+            <figure class="polaroid" style="--tilt:1.4deg">
+              <div class="polaroid__ph">J</div>
+              <figcaption>december 2025</figcaption>
+            </figure>
+            <div class="member__body">
+              <h3>Joyce</h3>
+              <p class="member-meta">35 · schoonheidsspecialiste met eigen salon · mama van 2</p>
+              <p>In de ochtend in de box, overdag ladyboss in haar eigen salon. Altijd de grootste smile en de drive om iets nieuws te leren. En de pijntjes van vroeger? Die blijven weg sinds ze traint.</p>
+              <a class="link-arrow mt-m" href="https://www.instagram.com/effortbelgie/p/DTNXsxvjGjr/" target="_blank" rel="noopener">Bekijk op Instagram <span>→</span></a>
+            </div>
           </article>
-          <article class="card reveal">
-            <span class="tag member-tag">November 2025</span>
-            <h3 class="mt-s">Peter</h3>
-            <p class="member-meta">55 · logistiek planner · grootvader</p>
-            <p class="mt-s">Eén van de anciens: veel energie, fratskes en doorzettingsvermogen. En een grote softspot voor zijn kleindochter.</p>
-            <a class="link-arrow mt-m" href="https://www.instagram.com/effortbelgie/p/DRKfbe_jNih/" target="_blank" rel="noopener">Bekijk op Instagram <span>→</span></a>
+          <figure class="polaroid polaroid--solo reveal" style="--tilt:-3.2deg">
+            <img src="assets/img/class-group.jpg?v=6" alt="" loading="lazy" />
+            <figcaption>de crew na de wod</figcaption>
+          </figure>
+          <article class="member reveal">
+            <figure class="polaroid" style="--tilt:-1.8deg">
+              <div class="polaroid__ph">P</div>
+              <figcaption>november 2025</figcaption>
+            </figure>
+            <div class="member__body">
+              <h3>Peter</h3>
+              <p class="member-meta">55 · logistiek planner · grootvader</p>
+              <p>Eén van de anciens van de box: veel energie, fratskes en doorzettingsvermogen. En één grote softspot: zijn kleindochter.</p>
+              <a class="link-arrow mt-m" href="https://www.instagram.com/effortbelgie/p/DRKfbe_jNih/" target="_blank" rel="noopener">Bekijk op Instagram <span>→</span></a>
+            </div>
           </article>
-          <article class="card reveal" data-d="1">
-            <span class="tag member-tag">Oktober 2025</span>
-            <h3 class="mt-s">Sofie</h3>
-            <p class="member-meta">42 · HR-manager · mama</p>
-            <p class="mt-s">"Eerst goed afzien, daarna een pizza'ke met een cola light erbij? Da's zeker datte!"</p>
-            <a class="link-arrow mt-m" href="https://www.instagram.com/effortbelgie/p/DPy2J1kDCh_/" target="_blank" rel="noopener">Bekijk op Instagram <span>→</span></a>
+          <article class="member reveal" data-d="1">
+            <figure class="polaroid" style="--tilt:2.2deg">
+              <div class="polaroid__ph">S</div>
+              <figcaption>oktober 2025</figcaption>
+            </figure>
+            <div class="member__body">
+              <h3>Sofie</h3>
+              <p class="member-meta">42 · HR-manager · mama van Renée</p>
+              <p>“Eerst goed afzien, daarna een pizza’ke met een cola light erbij? Da’s zeker datte!” Balans, weet je wel.</p>
+              <a class="link-arrow mt-m" href="https://www.instagram.com/effortbelgie/p/DPy2J1kDCh_/" target="_blank" rel="noopener">Bekijk op Instagram <span>→</span></a>
+            </div>
           </article>
-          <article class="card reveal" data-d="2">
-            <span class="tag member-tag">September 2025</span>
-            <h3 class="mt-s">Joke</h3>
-            <p class="member-meta">37 · lichaamsgericht therapeute en ademcoach</p>
-            <p class="mt-s">(Over)enthousiaste crossfitter. Houdt van blote voeten in het gras én van deadlifts. Overtuigde ondertussen ook Matthias om te starten.</p>
-            <a class="link-arrow mt-m" href="https://www.instagram.com/effortbelgie/p/DOiI4NXjBXZ/" target="_blank" rel="noopener">Bekijk op Instagram <span>→</span></a>
+          <figure class="polaroid polaroid--solo reveal" style="--tilt:2.8deg">
+            <img src="assets/img/gym.jpg?v=6" alt="" loading="lazy" />
+            <figcaption>thuisbasis: Industrielaan 3</figcaption>
+          </figure>
+          <article class="member reveal" data-d="2">
+            <figure class="polaroid" style="--tilt:-2.4deg">
+              <div class="polaroid__ph">J</div>
+              <figcaption>september 2025</figcaption>
+            </figure>
+            <div class="member__body">
+              <h3>Joke</h3>
+              <p class="member-meta">37 · lichaamsgericht therapeute en ademcoach</p>
+              <p>(Over)enthousiaste crossfitter die houdt van blote voeten in het gras én van deadlifts. Overtuigde ondertussen ook Matthias om te starten. Zo gaat dat hier.</p>
+              <a class="link-arrow mt-m" href="https://www.instagram.com/effortbelgie/p/DOiI4NXjBXZ/" target="_blank" rel="noopener">Bekijk op Instagram <span>→</span></a>
+            </div>
           </article>
         </div>
         <p class="members-note reveal">Elke maand komt er een verhaal bij. Volg ze allemaal op <a class="text-red" href="https://www.instagram.com/effortbelgie/" target="_blank" rel="noopener">@effortbelgie</a>.</p>
