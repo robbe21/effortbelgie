@@ -1,0 +1,43 @@
+# Oude WordPress-URL's (query-permalinks) -> nieuwe pagina's
+/  page_id=66   /team.html         301!
+/  page_id=67   /team.html         301!
+/  page_id=68   /aanbod.html       301!
+/  page_id=69   /prijzen.html      301!
+/  page_id=259  /get-started.html  301!
+/  page_id=95   /                  301!
+/  p=1          /                  301!
+/  cat=1        /                  301!
+/  author=:a    /team.html         301!
+/  sitemap=:s   /sitemap.xml       301!
+
+# Legacy paden (oude site + crossfit-kapellen.be pad-bewarende 301's)
+/uurrooster     /get-started.html  301
+/uurrooster/*   /get-started.html  301
+/fotogalerij    /leden.html        301
+/fotogalerij/*  /leden.html        301
+/author/*       /team.html         301
+/over-ons       /team.html         301
+/over-ons/*     /team.html         301
+/contact        /                  301
+/contact/*      /                  301
+/rooster        /get-started.html  301
+/rooster/*      /get-started.html  301
+/aanbod         /aanbod.html       301
+/aanbod/        /aanbod.html       301
+/team           /team.html         301
+/team/          /team.html         301
+/prijzen        /prijzen.html      301
+/prijzen/       /prijzen.html      301
+
+# WordPress-restanten
+/wp-content/*   /                  301
+/wp-admin/*     /                  301
+/wp-login.php   /                  301
+/wp-includes/*  /                  301
+/feed           /                  301
+/feed/*         /                  301
+/xmlrpc.php     /                  301
+
+# Netheid
+/index.html     /                  301!
+/welkom.html    /welkom            301!
