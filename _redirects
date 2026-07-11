@@ -1,12 +1,12 @@
 # Oude WordPress-URL's (query-permalinks) -> nieuwe pagina's
+# NB: ?p=1, ?cat=1 en ?page_id=95 krijgen bewust GEEN regel: doel is de homepage zelf
+# en Netlify behoudt query-params, dus / -> / zou een redirect-loop geven.
+# De canonical op de homepage consolideert die URL's voor Google.
 /  page_id=66   /team.html         301!
 /  page_id=67   /team.html         301!
 /  page_id=68   /aanbod.html       301!
 /  page_id=69   /prijzen.html      301!
 /  page_id=259  /get-started.html  301!
-/  page_id=95   /                  301!
-/  p=1          /                  301!
-/  cat=1        /                  301!
 /  author=:a    /team.html         301!
 /  sitemap=:s   /sitemap.xml       301!
 
