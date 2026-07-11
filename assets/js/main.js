@@ -67,15 +67,38 @@
   var yr = doc.getElementById("year");
   if (yr) yr.textContent = String(new Date().getFullYear());
 
-  /* ---- GA4: proefles-conversie (klik op een WodApp-proefleslink) ---- */
+  /* ---- GA4: funnel-events ---- */
+  function track(naam, link) {
+    if (typeof window.gtag !== "function") return;
+    window.gtag("event", naam, {
+      link_url: link ? link.href : undefined,
+      link_text: link ? (link.textContent || "").trim().slice(0, 80) : undefined,
+      page_path: location.pathname
+    });
+  }
+
   doc.addEventListener("click", function (e) {
-    var link = e.target && e.target.closest ? e.target.closest('a[href*="wodapp.nl"], a[href*="#boek"]') : null;
-    if (link && typeof window.gtag === "function") {
-      window.gtag("event", "proefles_klik", {
-        link_url: link.href,
-        link_text: (link.textContent || "").trim().slice(0, 80),
-        page_path: location.pathname
-      });
-    }
+    var a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+    if (!a) return;
+    var href = a.getAttribute("href") || "";
+    if (href.indexOf("wodapp.nl") !== -1 || href.indexOf("#boek") !== -1) track("proefles_klik", a);
+    else if (href.indexOf("tel:") === 0) track("bel_klik", a);
+    else if (href.indexOf("mailto:") === 0) track("mail_klik", a);
+    else if (href.indexOf("google.com/maps") !== -1 && href.indexOf("reviews") === -1 && a.textContent.toLowerCase().indexOf("review") !== -1) track("reviews_klik", a);
+    else if (href.indexOf("!9m1!1b1") !== -1) track("reviews_klik", a);
   }, true);
+
+  /* ---- GA4: interactie met de embedded boekingswidget (iframe-focus) ---- */
+  var bookingFrame = doc.querySelector(".booking-frame iframe");
+  if (bookingFrame) {
+    var widgetGemeld = false;
+    window.addEventListener("blur", function () {
+      if (!widgetGemeld && doc.activeElement === bookingFrame) {
+        widgetGemeld = true;
+        if (typeof window.gtag === "function") {
+          window.gtag("event", "widget_interactie", { page_path: location.pathname });
+        }
+      }
+    });
+  }
 })();
