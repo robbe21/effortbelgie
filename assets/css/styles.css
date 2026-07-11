@@ -224,6 +224,7 @@ body.nav-open .nav-mobile { transform: translateY(0); opacity: 1; pointer-events
 
 /* ----- Mission / split ----- */
 .split { display: grid; gap: clamp(28px, 6vw, 60px); align-items: center; }
+.split--start { align-items: start; }
 .media-frame { position: relative; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: var(--ink-2); }
 .media-frame img { width: 100%; height: 100%; object-fit: cover; }
 .media-frame--tall { aspect-ratio: 4/5; }
@@ -467,7 +468,6 @@ body.nav-open .nav-mobile { transform: translateY(0); opacity: 1; pointer-events
    Breakpoints (mobile-first → up)
    ========================================================================== */
 @media (min-width: 600px) {
-  .grid--2 { grid-template-columns: repeat(2, 1fr); }
   .team-grid { grid-template-columns: repeat(2, 1fr); }
   .checklist { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: repeat(2, 1fr); }
