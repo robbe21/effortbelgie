@@ -2,7 +2,7 @@
 <html lang="nl-BE">
 <head>
 <meta charset="UTF-8" />
-<title>Effort proefles-boardingpass, drukklaar 185x82,5mm (IATA boarding pass) + 3mm afloop</title>
+<title>Effort proefles-boardingpass, drukklaar DL 210x98mm (Printdeal geperforeerd) + 3mm afloop</title>
 <meta name="robots" content="noindex, nofollow" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,46 +14,46 @@
     --ff-mono:"Space Mono",ui-monospace,monospace; --ff-body:"Inter",system-ui,sans-serif;
   }
   * { box-sizing:border-box; margin:0; }
-  @page { size: 191mm 88.5mm; margin: 0; }
+  @page { size: 216mm 104mm; margin: 0; }
   body { -webkit-print-color-adjust:exact; print-color-adjust:exact; font-family:var(--ff-body); }
-  .page { width:191mm; height:88.5mm; overflow:hidden; position:relative; background:var(--ink); break-after:page; }
+  .page { width:216mm; height:104mm; overflow:hidden; position:relative; background:var(--ink); break-after:page; }
 
   /* ============ VOORKANT: MAIN ============ */
-  .main { position:absolute; left:0; top:0; bottom:0; right:57mm; }
-  .main__in { position:absolute; left:8.5mm; right:6mm; top:8mm; bottom:8mm; display:flex; flex-direction:column; justify-content:space-between; }
+  .main { position:absolute; left:0; top:0; bottom:0; right:64mm; }
+  .main__in { position:absolute; left:9.5mm; right:7mm; top:9.5mm; bottom:9.5mm; display:flex; flex-direction:column; justify-content:space-between; }
   .kop { display:flex; align-items:center; justify-content:space-between; }
-  .kop img { width:23mm; height:auto; display:block; }
+  .kop img { width:26mm; height:auto; display:block; }
   .kop span { font-family:var(--ff-label); font-weight:600; text-transform:uppercase; letter-spacing:.3em; font-size:2.3mm; color:var(--fog); }
 
   .route { display:flex; align-items:center; gap:6mm; }
-  .route__stad { font-family:var(--ff-mono); font-weight:700; font-size:9.5mm; color:var(--bone); line-height:1; letter-spacing:-.02em; }
+  .route__stad { font-family:var(--ff-mono); font-weight:700; font-size:11mm; color:var(--bone); line-height:1; letter-spacing:-.02em; }
   .route__lbl { font-family:var(--ff-label); font-weight:500; text-transform:uppercase; letter-spacing:.22em; font-size:2mm; color:var(--fog); margin-bottom:1.4mm; }
   .route__pad { flex:1; position:relative; height:6mm; }
   .route__pad::before { content:""; position:absolute; left:0; right:0; top:50%; border-top:.45mm dashed #3a3a40; }
   .route__pad svg { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:7.5mm; height:7.5mm; color:var(--red); background:var(--ink); padding:0 .8mm; }
 
-  .big { font-family:var(--ff-display); text-transform:uppercase; line-height:.9; font-size:12mm; color:var(--bone); }
+  .big { font-family:var(--ff-display); text-transform:uppercase; line-height:.9; font-size:14mm; color:var(--bone); }
   .big em { font-style:normal; color:var(--red); }
 
   .data { display:flex; gap:8mm; }
   .data div { min-width:0; }
   .data .l { font-family:var(--ff-label); font-weight:500; text-transform:uppercase; letter-spacing:.2em; font-size:1.9mm; color:var(--fog); }
-  .data .w { font-family:var(--ff-mono); font-weight:700; font-size:3mm; color:var(--bone); margin-top:1mm; white-space:nowrap; }
+  .data .w { font-family:var(--ff-mono); font-weight:700; font-size:3.3mm; color:var(--bone); margin-top:1mm; white-space:nowrap; }
   .terms { font-size:1.9mm; color:#5f5f66; margin-top:-3mm; }
 
   /* ============ VOORKANT: STUB ============ */
-  .stub { position:absolute; right:0; top:0; bottom:0; width:57mm; background:var(--red); }
-  .perf { position:absolute; right:57mm; top:3mm; bottom:3mm; border-left:.6mm dashed rgba(245,243,239,.55); }
-  .stub__in { position:absolute; left:5.5mm; right:8.5mm; top:8mm; bottom:8mm; display:flex; flex-direction:column; align-items:center; text-align:center; }
+  .stub { position:absolute; right:0; top:0; bottom:0; width:64mm; background:var(--red); }
+  .perf { position:absolute; right:64mm; top:3mm; bottom:3mm; border-left:.6mm dashed rgba(245,243,239,.55); }
+  .stub__in { position:absolute; left:6mm; right:9.5mm; top:9.5mm; bottom:9.5mm; display:flex; flex-direction:column; align-items:center; text-align:center; }
   .stub__kicker { font-family:var(--ff-label); font-weight:600; text-transform:uppercase; letter-spacing:.3em; font-size:2.5mm; color:#fff; }
-  .qrtile { width:30mm; height:30mm; background:#fff; border-radius:1.8mm; display:flex; align-items:center; justify-content:center; margin-top:auto; }
-  .qrtile svg { width:26mm; height:26mm; }
+  .qrtile { width:34mm; height:34mm; background:#fff; border-radius:1.8mm; display:flex; align-items:center; justify-content:center; margin-top:auto; }
+  .qrtile svg { width:29mm; height:29mm; }
   .stub__url { font-family:var(--ff-mono); font-weight:700; font-size:2.6mm; color:#fff; margin-top:4mm; margin-bottom:auto; }
   .stub__note { font-family:var(--ff-label); font-weight:500; text-transform:uppercase; letter-spacing:.2em; font-size:2mm; color:rgba(255,255,255,.85); margin-top:auto; }
 
   /* ============ ACHTERKANT ============ */
   .back { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
-  .back img { width:56mm; height:auto; display:block; }
+  .back img { width:62mm; height:auto; display:block; }
   .back__slogan { font-family:var(--ff-label); font-weight:600; text-transform:uppercase; letter-spacing:.3em; font-size:2.7mm; color:var(--fog); margin-top:6mm; }
   .back__terms { position:absolute; left:0; right:0; bottom:7mm; text-align:center; font-size:1.9mm; color:#5f5f66; }
 </style>
@@ -91,9 +91,11 @@
       <p class="terms">Eén gratis proefles (CrossFit of HYWOD) per nieuwe deelnemer, na online reservatie · 2950 Kapellen</p>
     </div>
   </div>
+  <div style="position:absolute; right:64mm; top:0; height:3mm; border-left:.5mm solid #CE0058;"></div>
+  <div style="position:absolute; right:64mm; bottom:0; height:3mm; border-left:.5mm solid #CE0058;"></div>
   <div class="stub"></div>
   <div class="perf"></div>
-  <div class="stub__wrap" style="position:absolute; right:0; top:0; bottom:0; width:57mm;">
+  <div class="stub__wrap" style="position:absolute; right:0; top:0; bottom:0; width:64mm;">
     <div class="stub__in">
       <div class="stub__kicker">Scan &amp; boek</div>
       <div class="qrtile">
