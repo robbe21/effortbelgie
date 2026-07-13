@@ -1,3 +1,6 @@
+# Demo-subdomein doorsturen naar het echte domein
+https://effort-belgie.netlify.app/* https://effortbelgie.be/:splat 301!
+
 # Oude WordPress-URL's (query-permalinks) -> nieuwe pagina's
 # NB: ?p=1, ?cat=1 en ?page_id=95 krijgen bewust GEEN regel: doel is de homepage zelf
 # en Netlify behoudt query-params, dus / -> / zou een redirect-loop geven.
