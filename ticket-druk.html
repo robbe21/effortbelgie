@@ -2,82 +2,117 @@
 <html lang="nl-BE">
 <head>
 <meta charset="UTF-8" />
-<title>Effort proefles-ticket, drukklaar 85x55mm + 3mm afloop</title>
+<title>Effort proefles-boardingpass, drukklaar DL 210x99mm + 3mm afloop</title>
 <meta name="robots" content="noindex, nofollow" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600&family=Space+Mono:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --ink:#0f0f11; --bone:#f5f3ef; --fog:#9a9aa2; --red:#d45751; --red-deep:#b23f39;
-    --ff-display:"Anton",Impact,sans-serif; --ff-label:"Oswald","Arial Narrow",sans-serif; --ff-body:"Inter",system-ui,sans-serif;
+    --ink:#0f0f11; --ink-2:#17171a; --bone:#f5f3ef; --fog:#8f8f98; --red:#d45751; --red-deep:#b23f39;
+    --ff-display:"Anton",Impact,sans-serif; --ff-label:"Oswald","Arial Narrow",sans-serif;
+    --ff-mono:"Space Mono",ui-monospace,monospace; --ff-body:"Inter",system-ui,sans-serif;
   }
   * { box-sizing:border-box; margin:0; }
-  @page { size: 91mm 61mm; margin: 0; }
+  @page { size: 216mm 105mm; margin: 0; }
   body { -webkit-print-color-adjust:exact; print-color-adjust:exact; font-family:var(--ff-body); }
-  .page { width:91mm; height:61mm; overflow:hidden; position:relative; background:var(--ink); break-after:page; }
+  .page { width:216mm; height:105mm; overflow:hidden; position:relative; background:var(--ink); break-after:page; }
 
-  /* ============ VOORKANT ============ */
-  .rail { position:absolute; left:0; top:0; bottom:0; width:9mm; background:var(--red); }
-  .rail span {
-    position:absolute; top:50%; left:calc(50% + 1.5mm); transform:translate(-50%,-50%) rotate(-90deg);
-    white-space:nowrap; font-family:var(--ff-label); font-weight:600; text-transform:uppercase;
-    letter-spacing:.24em; font-size:2mm; color:rgba(255,255,255,.95);
-  }
-  .front__body { position:absolute; left:13.5mm; right:7mm; top:7mm; bottom:7mm; display:flex; flex-direction:column; }
-  .front__logo { width:24mm; height:auto; display:block; }
-  .front__kicker { font-family:var(--ff-label); font-weight:600; text-transform:uppercase; letter-spacing:.3em; font-size:2.4mm; color:var(--red); margin-top:4.5mm; }
-  .front__big { font-family:var(--ff-display); text-transform:uppercase; line-height:.88; font-size:14.5mm; color:var(--bone); margin-top:1.2mm; }
-  .front__big em { font-style:normal; color:var(--red); }
-  .front__sub { font-size:2.7mm; line-height:1.4; color:#c9c7c1; margin-top:2.6mm; max-width:62mm; }
-  .front__foot { margin-top:auto; display:flex; justify-content:space-between; align-items:baseline; gap:4mm; white-space:nowrap; }
-  .front__loc { font-family:var(--ff-label); font-weight:500; text-transform:uppercase; letter-spacing:.14em; font-size:2.2mm; color:var(--fog); }
-  .front__free { font-family:var(--ff-label); font-weight:600; text-transform:uppercase; letter-spacing:.14em; font-size:2.2mm; color:var(--bone); }
+  /* ============ VOORKANT: MAIN ============ */
+  .main { position:absolute; left:0; top:0; bottom:0; right:64mm; }
+  .main__in { position:absolute; left:9mm; right:6mm; top:9mm; bottom:9mm; display:flex; flex-direction:column; justify-content:space-between; }
+  .kop { display:flex; align-items:center; justify-content:space-between; }
+  .kop img { width:26mm; height:auto; display:block; }
+  .kop span { font-family:var(--ff-label); font-weight:600; text-transform:uppercase; letter-spacing:.32em; font-size:2.5mm; color:var(--fog); }
+
+  .route { display:flex; align-items:center; gap:6mm; }
+  .route__stad { font-family:var(--ff-mono); font-weight:700; font-size:11.5mm; color:var(--bone); line-height:1; letter-spacing:-.02em; }
+  .route__lbl { font-family:var(--ff-label); font-weight:500; text-transform:uppercase; letter-spacing:.22em; font-size:2mm; color:var(--fog); margin-bottom:1.4mm; }
+  .route__pad { flex:1; position:relative; height:6mm; }
+  .route__pad::before { content:""; position:absolute; left:0; right:0; top:50%; border-top:.45mm dashed #3a3a40; }
+  .route__pad svg { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:9mm; height:9mm; color:var(--red); background:var(--ink); padding:0 .8mm; }
+
+  .big { font-family:var(--ff-display); text-transform:uppercase; line-height:.9; font-size:15mm; color:var(--bone); }
+  .big em { font-style:normal; color:var(--red); }
+
+  .data { display:flex; gap:10mm; }
+  .data div { min-width:0; }
+  .data .l { font-family:var(--ff-label); font-weight:500; text-transform:uppercase; letter-spacing:.2em; font-size:1.9mm; color:var(--fog); }
+  .data .w { font-family:var(--ff-mono); font-weight:700; font-size:3.4mm; color:var(--bone); margin-top:1mm; white-space:nowrap; }
+  .terms { font-size:1.9mm; color:#5f5f66; margin-top:-3mm; }
+
+  /* ============ VOORKANT: STUB ============ */
+  .stub { position:absolute; right:0; top:0; bottom:0; width:64mm; background:var(--red); }
+  .perf { position:absolute; right:64mm; top:3mm; bottom:3mm; border-left:.6mm dashed rgba(245,243,239,.55); }
+  .stub__in { position:absolute; left:6mm; right:9mm; top:9mm; bottom:9mm; display:flex; flex-direction:column; align-items:center; text-align:center; }
+  .stub__kicker { font-family:var(--ff-label); font-weight:600; text-transform:uppercase; letter-spacing:.3em; font-size:2.5mm; color:#fff; }
+  .qrtile { width:35mm; height:35mm; background:#fff; border-radius:1.8mm; display:flex; align-items:center; justify-content:center; margin-top:auto; }
+  .qrtile svg { width:30mm; height:30mm; }
+  .stub__url { font-family:var(--ff-mono); font-weight:700; font-size:2.9mm; color:#fff; margin-top:4mm; margin-bottom:auto; }
+  .stub__note { font-family:var(--ff-label); font-weight:500; text-transform:uppercase; letter-spacing:.2em; font-size:2mm; color:rgba(255,255,255,.85); margin-top:auto; }
 
   /* ============ ACHTERKANT ============ */
-  .back__inner { position:absolute; inset:7mm; display:flex; align-items:center; gap:6mm; }
-  .qrtile { flex:0 0 32mm; height:32mm; background:#fff; border-radius:2mm; display:flex; align-items:center; justify-content:center; }
-  .qrtile svg { width:27mm; height:27mm; }
-  .back__txt { flex:1; }
-  .back__kicker { font-family:var(--ff-label); font-weight:600; text-transform:uppercase; letter-spacing:.28em; font-size:2.3mm; color:var(--red); }
-  .back__h { font-family:var(--ff-display); text-transform:uppercase; line-height:.92; font-size:6.8mm; color:var(--bone); margin-top:1.5mm; }
-  .back__url { font-family:var(--ff-label); font-weight:600; text-transform:uppercase; letter-spacing:.06em; font-size:3.1mm; color:var(--red); margin-top:2.5mm; }
-  .back__terms { font-size:1.9mm; line-height:1.45; color:var(--fog); margin-top:2.5mm; max-width:44mm; }
+  .back { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+  .back img { width:64mm; height:auto; display:block; }
+  .back__slogan { font-family:var(--ff-label); font-weight:600; text-transform:uppercase; letter-spacing:.3em; font-size:2.7mm; color:var(--fog); margin-top:6mm; }
+  .back__terms { position:absolute; left:0; right:0; bottom:8mm; text-align:center; font-size:1.9mm; color:#5f5f66; }
 </style>
 </head>
 <body>
 
 <!-- VOORKANT -->
 <section class="page">
-  <div class="rail"><span>Make an effort · not an excuse</span></div>
-  <div class="front__body">
-    <img class="front__logo" src="assets/img/logo-effort.png" alt="Effort" />
-    <p class="front__kicker">Cadeau van een lid</p>
-    <h1 class="front__big">1 <em>gratis</em> les</h1>
-    <p class="front__sub">Een proefles CrossFit of HYWOD, helemaal op jouw niveau.</p>
-    <div class="front__foot">
-      <span class="front__loc">CrossFit · HYWOD · Kapellen</span>
-      <span class="front__free">Gratis &amp; vrijblijvend</span>
+  <div class="main">
+    <div class="main__in">
+      <div class="kop">
+        <img src="assets/img/logo-effort.png" alt="Effort" />
+        <span>Instapkaart · Gratis proefles</span>
+      </div>
+      <div class="route">
+        <div>
+          <div class="route__lbl">Van</div>
+          <div class="route__stad">ZETEL</div>
+        </div>
+        <div class="route__pad">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+        </div>
+        <div>
+          <div class="route__lbl">Naar</div>
+          <div class="route__stad">EFFORT</div>
+        </div>
+      </div>
+      <h1 class="big">1 <em>gratis</em> proefles</h1>
+      <div class="data">
+        <div><div class="l">Reiziger</div><div class="w">VRIEND VAN EEN LID</div></div>
+        <div><div class="l">Gate</div><div class="w">INDUSTRIELAAN 3</div></div>
+        <div><div class="l">Vertrek</div><div class="w">JIJ KIEST</div></div>
+        <div><div class="l">Klasse</div><div class="w">OP JOUW NIVEAU</div></div>
+      </div>
+      <p class="terms">Eén gratis proefles (CrossFit of HYWOD) per nieuwe deelnemer, na online reservatie · 2950 Kapellen</p>
+    </div>
+  </div>
+  <div class="stub"></div>
+  <div class="perf"></div>
+  <div class="stub__wrap" style="position:absolute; right:0; top:0; bottom:0; width:64mm;">
+    <div class="stub__in">
+      <div class="stub__kicker">Scan &amp; boek</div>
+      <div class="qrtile">
+        <svg viewBox="0 0 33 33" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#ffffff" d="M0 0h33v33H0z"/>
+          <path stroke="#0f0f11" d="M2 2.5h7m1 0h1m1 0h1m2 0h3m2 0h3m1 0h7M2 3.5h1m5 0h1m1 0h1m1 0h1m1 0h2m2 0h3m1 0h1m1 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m2 0h1m2 0h1m3 0h1m1 0h1m3 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m1 0h1m1 0h3m1 0h2m1 0h2m3 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m3 0h1m1 0h1m1 0h1m1 0h1m2 0h1m2 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m2 0h2m1 0h2m1 0h5m2 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 9.5h4m3 0h5M2 10.5h1m1 0h2m1 0h3m1 0h3m1 0h1m1 0h1m1 0h2m3 0h1m2 0h1m1 0h2M3 11.5h2m1 0h1m2 0h1m2 0h6m3 0h1m2 0h3m3 0h1M2 12.5h3m1 0h1m1 0h3m3 0h2m2 0h1m1 0h1m5 0h1m1 0h2M2 13.5h1m1 0h1m2 0h1m2 0h4m4 0h1m1 0h3m2 0h2m3 0h1M2 14.5h1m2 0h7m2 0h1m1 0h2m1 0h1m7 0h2M2 15.5h1m3 0h1m4 0h1m4 0h1m1 0h2m1 0h1m1 0h2m3 0h3M2 16.5h3m3 0h1m1 0h2m2 0h2m1 0h2m1 0h5m1 0h1m1 0h3M2 17.5h4m4 0h5m1 0h1m1 0h1m4 0h1m1 0h2m2 0h1M4 18.5h1m1 0h4m1 0h4m1 0h3m1 0h4m1 0h3m1 0h1M3 19.5h1m3 0h1m5 0h1m2 0h1m1 0h2m2 0h1m2 0h1m1 0h3M2 20.5h1m4 0h5m3 0h4m3 0h2m4 0h1M4 21.5h2m3 0h1m1 0h2m2 0h2m2 0h1m1 0h1m2 0h1m3 0h1M3 22.5h1m2 0h1m1 0h4m3 0h2m1 0h11M10 23.5h1m2 0h1m3 0h4m1 0h1m3 0h5M2 24.5h7m1 0h1m1 0h2m2 0h2m3 0h2m1 0h1m1 0h2m1 0h1M2 25.5h1m5 0h1m1 0h1m1 0h2m1 0h3m2 0h1m1 0h1m3 0h2M2 26.5h1m1 0h3m1 0h1m5 0h1m4 0h1m2 0h5m1 0h1m1 0h1M2 27.5h1m1 0h3m1 0h1m1 0h6m6 0h2m1 0h3m1 0h1M2 28.5h1m1 0h3m1 0h1m1 0h1m2 0h1m1 0h1m3 0h2m1 0h1m2 0h1m2 0h1m1 0h1M2 29.5h1m5 0h1m2 0h3m1 0h4m3 0h1m2 0h3m1 0h1M2 30.5h7m1 0h2m2 0h2m1 0h1m2 0h4m5 0h1"/>
+        </svg>
+      </div>
+      <div class="stub__url">effortbelgie.be/welkom</div>
+      <div class="stub__note">Gratis &amp; vrijblijvend</div>
     </div>
   </div>
 </section>
 
 <!-- ACHTERKANT -->
-<section class="page">
-  <div class="back__inner">
-    <div class="qrtile">
-      <svg viewBox="0 0 33 33" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#ffffff" d="M0 0h33v33H0z"/>
-        <path stroke="#0f0f11" d="M2 2.5h7m1 0h1m1 0h1m2 0h3m2 0h3m1 0h7M2 3.5h1m5 0h1m1 0h1m1 0h1m1 0h2m2 0h3m1 0h1m1 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m2 0h1m2 0h1m3 0h1m1 0h1m3 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m1 0h1m1 0h3m1 0h2m1 0h2m3 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m3 0h1m1 0h1m1 0h1m1 0h1m2 0h1m2 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m2 0h2m1 0h2m1 0h5m2 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 9.5h4m3 0h5M2 10.5h1m1 0h2m1 0h3m1 0h3m1 0h1m1 0h1m1 0h2m3 0h1m2 0h1m1 0h2M3 11.5h2m1 0h1m2 0h1m2 0h6m3 0h1m2 0h3m3 0h1M2 12.5h3m1 0h1m1 0h3m3 0h2m2 0h1m1 0h1m5 0h1m1 0h2M2 13.5h1m1 0h1m2 0h1m2 0h4m4 0h1m1 0h3m2 0h2m3 0h1M2 14.5h1m2 0h7m2 0h1m1 0h2m1 0h1m7 0h2M2 15.5h1m3 0h1m4 0h1m4 0h1m1 0h2m1 0h1m1 0h2m3 0h3M2 16.5h3m3 0h1m1 0h2m2 0h2m1 0h2m1 0h5m1 0h1m1 0h3M2 17.5h4m4 0h5m1 0h1m1 0h1m4 0h1m1 0h2m2 0h1M4 18.5h1m1 0h4m1 0h4m1 0h3m1 0h4m1 0h3m1 0h1M3 19.5h1m3 0h1m5 0h1m2 0h1m1 0h2m2 0h1m2 0h1m1 0h3M2 20.5h1m4 0h5m3 0h4m3 0h2m4 0h1M4 21.5h2m3 0h1m1 0h2m2 0h2m2 0h1m1 0h1m2 0h1m3 0h1M3 22.5h1m2 0h1m1 0h4m3 0h2m1 0h11M10 23.5h1m2 0h1m3 0h4m1 0h1m3 0h5M2 24.5h7m1 0h1m1 0h2m2 0h2m3 0h2m1 0h1m1 0h2m1 0h1M2 25.5h1m5 0h1m1 0h1m1 0h2m1 0h3m2 0h1m1 0h1m3 0h2M2 26.5h1m1 0h3m1 0h1m5 0h1m4 0h1m2 0h5m1 0h1m1 0h1M2 27.5h1m1 0h3m1 0h1m1 0h6m6 0h2m1 0h3m1 0h1M2 28.5h1m1 0h3m1 0h1m1 0h1m2 0h1m1 0h1m3 0h2m1 0h1m2 0h1m2 0h1m1 0h1M2 29.5h1m5 0h1m2 0h3m1 0h4m3 0h1m2 0h3m1 0h1M2 30.5h7m1 0h2m2 0h2m1 0h1m2 0h4m5 0h1"/>
-      </svg>
-    </div>
-    <div class="back__txt">
-      <p class="back__kicker">Scan &amp; boek</p>
-      <h2 class="back__h">Jouw gratis<br/>proefles</h2>
-      <p class="back__url">effortbelgie.be/welkom</p>
-      <p class="back__terms">Eén gratis proefles per nieuwe deelnemer, na online reservatie.<br/>Industrielaan 3, 2950 Kapellen</p>
-    </div>
-  </div>
+<section class="page back">
+  <img src="assets/img/logo-effort-full.png" alt="Effort, Health Performance CrossFit" />
+  <p class="back__slogan">Make an effort · not an excuse</p>
+  <p class="back__terms">Industrielaan 3, 2950 Kapellen · effortbelgie.be</p>
 </section>
 
 </body>
