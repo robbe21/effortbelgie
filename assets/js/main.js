@@ -82,6 +82,7 @@
     if (!a) return;
     var href = a.getAttribute("href") || "";
     if (href.indexOf("wodapp.nl") !== -1 || href.indexOf("#boek") !== -1) track("proefles_klik", a);
+    else if (href.indexOf("wa.me") !== -1) track("whatsapp_klik", a);
     else if (href.indexOf("tel:") === 0) track("bel_klik", a);
     else if (href.indexOf("mailto:") === 0) track("mail_klik", a);
     else if (href.indexOf("google.com/maps") !== -1 && href.indexOf("reviews") === -1 && a.textContent.toLowerCase().indexOf("review") !== -1) track("reviews_klik", a);
