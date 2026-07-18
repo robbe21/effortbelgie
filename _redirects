@@ -31,6 +31,14 @@ https://effort-belgie.netlify.app/* https://effortbelgie.be/:splat 301!
 /team/          /team.html         301
 /prijzen        /prijzen.html      301
 /prijzen/       /prijzen.html      301
+/personal-training     /personal-training-kapellen.html  301
+/personal-training/*   /personal-training-kapellen.html  301
+/wat-is-crossfit       /crossfit-voor-beginners.html     301
+/wat-is-crossfit/*     /crossfit-voor-beginners.html     301
+/blog           /                  301
+/blog/*         /                  301
+/embed          /                  301
+/embed/*        /                  301
 
 # WordPress-restanten
 /wp-content/*   /                  301
