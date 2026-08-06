@@ -89,15 +89,21 @@
     else if (href.indexOf("!9m1!1b1") !== -1) track("reviews_klik", a);
   }, true);
 
-  /* ---- GA4: interactie met de embedded boekingswidget (iframe-focus) ---- */
-  var bookingFrame = doc.querySelector(".booking-frame iframe");
-  if (bookingFrame) {
+  /* ---- GA4: interactie met een embedded WodApp-widget (iframe-focus) ---- */
+  var wodappFrame = doc.querySelector(".booking-frame iframe");
+  if (wodappFrame) {
+    // rooster.html gebruikt dezelfde .booking-frame als de proefles-widget, maar is
+    // een andere intentie: leden die een les reserveren i.p.v. een proefles boeken.
+    // Apart event, anders telt het lesrooster mee als boekingsintentie.
+    var frameEvent = doc.querySelector(".booking-frame--agenda iframe")
+      ? "rooster_interactie"
+      : "widget_interactie";
     var widgetGemeld = false;
     window.addEventListener("blur", function () {
-      if (!widgetGemeld && doc.activeElement === bookingFrame) {
+      if (!widgetGemeld && doc.activeElement === wodappFrame) {
         widgetGemeld = true;
         if (typeof window.gtag === "function") {
-          window.gtag("event", "widget_interactie", { page_path: location.pathname });
+          window.gtag("event", frameEvent, { page_path: location.pathname });
         }
       }
     });
