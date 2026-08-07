@@ -53,6 +53,36 @@
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://effortbelgie.be/" },
         { "@type": "ListItem", "position": 2, "name": "Get started", "item": "https://effortbelgie.be/get-started.html" }
       ]},
+      { "@type": "Offer",
+        "@id": "https://effortbelgie.be/get-started.html#proefles",
+        "name": "Gratis proefles CrossFit Kapellen",
+        "description": "Eén gratis en vrijblijvende proefles (WOD of HY*WOD) per nieuwe deelnemer, in een groep van maximaal 10 en altijd met coach op de vloer. Je hoeft niet fit te zijn om te starten; elke oefening wordt geschaald. Reserveren via WodApp.",
+        "url": "https://effortbelgie.be/get-started.html",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "category": "Proefles",
+        "offeredBy": { "@id": "https://effortbelgie.be/#business" },
+        "areaServed": ["Kapellen", "Wuustwezel", "Kalmthout", "Brasschaat", "Gooreind", "Maria-ter-Heide", "Ekeren", "Stabroek", "Antwerpen-noord"],
+        "itemOffered": {
+          "@type": "Service",
+          "name": "CrossFit-proefles bij Effort België",
+          "serviceType": "CrossFit-groepsles",
+          "provider": { "@id": "https://effortbelgie.be/#business" },
+          "areaServed": { "@type": "Place", "name": "Kapellen en regio Antwerpen-noord" }
+        },
+        "potentialAction": {
+          "@type": "ReserveAction",
+          "name": "Boek je gratis proefles",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://effortbelgie.be/get-started.html",
+            "inLanguage": "nl-BE",
+            "actionPlatform": ["https://schema.org/DesktopWebPlatform", "https://schema.org/MobileWebPlatform"]
+          },
+          "result": { "@type": "Reservation", "name": "Gratis proefles" }
+        }
+      },
       { "@type": "FAQPage", "mainEntity": [
         { "@type": "Question", "name": "Moet ik al fit zijn om te starten?", "acceptedAnswer": { "@type": "Answer", "text": "Nee, echt niet. Iedereen begint ooit als nieuweling. Elke oefening wordt aangepast aan wat jij vandaag aankunt: je coach traint op jouw niveau, niet andersom." }},
         { "@type": "Question", "name": "Ik ken er niemand. Is dat erg?", "acceptedAnswer": { "@type": "Answer", "text": "Helemaal niet. De meeste mensen komen alleen langs. Na je eerste les ken je al een paar namen. Onze community is net waar Effort om draait." }},

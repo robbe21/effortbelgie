@@ -80,11 +80,38 @@
         },
         "geo": { "@type": "GeoCoordinates", "latitude": 51.35606, "longitude": 4.505802 },
         "areaServed": ["Kapellen", "Wuustwezel", "Kalmthout", "Brasschaat", "Gooreind", "Maria-ter-Heide", "Ekeren", "Stabroek", "Antwerpen-noord"],
-        "openingHoursSpecification": [{
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-          "description": "Open ma–zo volgens lesrooster, reserveren via WodApp; personal training op afspraak"
-        }],
+        "openingHoursSpecification": [
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Thursday"], "opens": "07:00", "closes": "12:00" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Thursday"], "opens": "15:00", "closes": "21:00" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday"], "opens": "09:00", "closes": "12:00" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday"], "opens": "14:00", "closes": "21:00" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "12:00" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "15:00", "closes": "19:00" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "12:00" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "10:00", "closes": "11:30" }
+        ],
+        "hasMap": "https://www.google.com/maps?q=Industrielaan+3,+2950+Kapellen",
+        "founder": [
+          { "@type": "Person", "@id": "https://effortbelgie.be/team.html#yana", "name": "Yana" },
+          { "@type": "Person", "@id": "https://effortbelgie.be/team.html#jurgen", "name": "Jurgen" }
+        ],
+        "amenityFeature": [
+          { "@type": "LocationFeatureSpecification", "name": "Ruime gratis parking voor de deur", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Groepslessen van maximaal 10 personen", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Kinepraktijk Level Up in hetzelfde gebouw", "value": true }
+        ],
+        "hasOfferCatalog": { "@id": "https://effortbelgie.be/prijzen.html#abonnementen" },
+        "potentialAction": {
+          "@type": "ReserveAction",
+          "name": "Boek je gratis proefles",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://effortbelgie.be/get-started.html",
+            "inLanguage": "nl-BE",
+            "actionPlatform": ["https://schema.org/DesktopWebPlatform", "https://schema.org/MobileWebPlatform"]
+          },
+          "result": { "@type": "Reservation", "name": "Gratis proefles" }
+        },
         "sameAs": [
           "https://www.instagram.com/effortbelgie/",
           "https://www.facebook.com/crossfitkapellen",
