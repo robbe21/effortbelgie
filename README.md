@@ -1,46 +1,45 @@
-# Effort België — nieuwe website
+# Effort België — website
 
-Statische, **mobile-first** herbouw van effortbelgie.be in een dark cinematic / industrieel jasje
+Statische, **mobile-first** site van effortbelgie.be in een dark cinematic / industrieel jasje
 (charcoal/zwart + signal red `#FF2D2D`). Geen build-stap nodig — gewoon HTML, CSS en een beetje JS.
 
-## Pagina's
-| Bestand | Pagina |
+*Laatst bijgewerkt: 2026-08-17*
+
+## Pagina's (25)
+
+| Groep | Bestanden |
 |---|---|
-| `index.html` | Home (hero-video, missie & visie, aanbod, prijzen, contact) |
-| `team.html` | Team — 8 coaches |
-| `aanbod.html` | Aanbod — groepslessen, open gym, PT + lestypes (WOD/OLY/HY*WOD/TEAM) |
-| `prijzen.html` | Prijzen — 4 formules + voorwaarden |
-| `get-started.html` | Proefles boeken — stappen + wat meebrengen |
+| Kern | `index.html` (home) · `team.html` (9 coaches) · `aanbod.html` · `prijzen.html` · `get-started.html` (proefles) · `rooster.html` (lesrooster voor leden) · `leden.html` (ledenmuur) |
+| Regio-landingspagina's (7) | `crossfit-kapellen` zit op de home; verder `crossfit-brasschaat/-essen/-gooreind/-kalmthout/-loenhout/-maria-ter-heide/-wuustwezel.html` |
+| Gidsen & services (7) | `crossfit-voor-beginners` · `krachttraining-na-je-40` · `terug-beginnen-met-sporten` · `sporten-na-blessure-of-kine` · `hybride-training-kapellen` · `personal-training-kapellen` · `olympic-weightlifting-kapellen` |
+| Overig | `welkom.html` (QR-landing) · `coupons.html` · `ticket-druk.html` · `404.html` |
 
 ## Lokaal bekijken
+
 ```bash
-cd effortbelgie
-python3 -m http.server 4174
+python3 -m http.server 4174   # in deze map
 # open http://localhost:4174
 ```
 
-## Echte foto's toevoegen (aanbevolen)
-De coach-foto's zijn nu nette placeholders met monogram + "Foto volgt". In `team.html` staat
-per coach een `<!-- <img ...> -->` regel klaar in `.photo-slot`. Vervang de placeholder, bv.:
-```html
-<div class="photo-slot"><img src="assets/img/team/yana.jpg" alt="Yana"></div>
-```
-Sfeer/hero-beelden in `assets/img/` mag je ook vervangen door echte foto's van de box (zelfde
-bestandsnamen aanhouden = klaar).
+## Beeld
 
-## Beeld & video
-Alle sfeerbeelden zijn AI-gegenereerd (cinematic, geen herkenbare gezichten). De hero-video
-`assets/video/hero.mp4` is een naadloze, geluidloze loop (576 KB). Posters: `hero-mobile.jpg` /
-`hero-desktop.jpg`.
+Team- en ledenfoto's zijn echte foto's (`assets/img/team/`, `assets/img/leden/`); alleen coach
+Julie heeft nog een placeholder. De hero is een statisch beeld (`hero-mobile.jpg` /
+`hero-desktop.jpg`); sfeerbeelden in `assets/img/`.
 
 ## Boekingen
-Alle CTA-knoppen wijzen naar de bestaande WODapp-proefles:
-`https://www.wodapp.nl/free-trial/p/40513`. Eén plek aanpassen = zoek-en-vervang die URL.
+
+Alle proefles-CTA's wijzen naar `get-started.html`, waar de WodApp-proefleswidget embedded staat.
+Leden reserveren lessen via de WodApp-agenda op `rooster.html`.
 
 ## SEO
-`sitemap.xml`, `robots.txt`, per pagina meta + Open Graph (`assets/img/og.jpg`) en JSON-LD
-(SportsActivityLocation) zijn aanwezig. Pas `https://effortbelgie.be/` aan als het domein wijzigt.
+
+`sitemap.xml`, `robots.txt`, per pagina meta + Open Graph (`assets/img/og.jpg`). JSON-LD met een
+centrale `#business`-node (`HealthClub` + `SportsActivityLocation`) op de home, waar alle andere
+pagina's via `WebPage → about` aan hangen; `Person`-nodes op team, `Offer`/`ReserveAction` op
+get-started, `OfferCatalog` op prijzen en `FAQPage` op de gidsen.
 
 ## Deployen
-Sleep de map naar **Netlify Drop** of push naar GitHub + Netlify/Vercel. Geen config nodig
-(pure statische site).
+
+Push naar `main` van `robbe21/effortbelgie` → Netlify deployt automatisch naar effortbelgie.be
+(repo-root = publish-dir, geen config nodig). Redirects in `_redirects`, headers in `_headers`.
