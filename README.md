@@ -1,4 +1,5 @@
 # Effort België — website
+> Status: levend — publieke repo-README, de plek waar de pagina-lijst en de deploy-uitleg staan.
 
 Statische, **mobile-first** site van effortbelgie.be in een dark cinematic / industrieel jasje
 (charcoal/zwart + signal red `#FF2D2D`). Geen build-stap nodig — gewoon HTML, CSS en een beetje JS.

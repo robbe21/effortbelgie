@@ -9,28 +9,14 @@ Thumbs.db
 # Netlify
 .netlify/
 
-# Internal deliverables — NOT part of the public website
-CLAUDE.md
-SEO-AUDIT-EFFORT-BELGIE.md
-SEO-rapport-Yana.md
-BRANDING-EN-TONE-OF-VOICE.md
-Effort-Belgie-SEO-nieuwe-website.pdf
-effort-seo.html
-AVATARS-EN-FEEDBACK.md
-Effort-coupons-gratis-les.pdf
-REGIO-STRATEGIE.md
+# Internal deliverables — NOT part of the public website.
+# Patroonregels i.p.v. een lijst per bestand: een nieuw intern document (md, pdf, pptx)
+# is zo standaard afgeschermd in plaats van standaard publiek. De repo-root is de
+# publish-dir van Netlify, dus alles wat hier niet genegeerd wordt, staat live.
+*.md
+!/README.md
+*.pdf
+*.pptx
 tools/
 .claude/
-CUTOVER-RUNBOOK.md
-Effort-marketing-groeiplan.pptx
-Effort-marketing-groeiplan.pdf
-KEYWORD-ONDERZOEK.md
-Effort-SEO-en-advertentieplan.pdf
-BACKLOG.md
-LOOP-LOG.md
-Effort-maandrapport-VOORBEELD.pdf
-Effort-instagram-kalender.pdf
-COPY-VOORSTELLEN.md
-Effort-proefles-tickets.pdf
-Effort-proefles-boardingpass.pdf
-Effort-proefles-boardingpass-DL.pdf
+effort-seo.html
