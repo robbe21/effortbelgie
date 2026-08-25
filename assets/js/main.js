@@ -109,3 +109,33 @@
     });
   }
 })();
+
+/* ---- Cookiebanner: metingen laden pas na toestemming (zie privacy.html) ---- */
+(function () {
+  var KEUZE = "effort-cookies";
+  var opgeslagen = null;
+  try { opgeslagen = localStorage.getItem(KEUZE); } catch (e) { return; }
+  if (opgeslagen === "ja" || opgeslagen === "nee") return;
+  var banner = document.createElement("div");
+  banner.className = "cookiebanner";
+  banner.setAttribute("role", "dialog");
+  banner.setAttribute("aria-label", "Cookiekeuze");
+  banner.innerHTML =
+    '<p>We gebruiken cookies alleen voor bezoekersstatistieken, zodat we de site kunnen verbeteren. ' +
+    'Je keuze verandert niets aan het boeken van een proefles. ' +
+    '<a href="privacy.html">Meer over privacy en cookies</a>.</p>' +
+    '<div class="cookiebanner__knoppen">' +
+    '<button type="button" class="cookiebanner__knop" data-keuze="nee">Weigeren</button>' +
+    '<button type="button" class="cookiebanner__knop cookiebanner__knop--ja" data-keuze="ja">Aanvaarden</button>' +
+    '</div>';
+  banner.addEventListener("click", function (e) {
+    var knop = e.target.closest("button[data-keuze]");
+    if (!knop) return;
+    try { localStorage.setItem(KEUZE, knop.getAttribute("data-keuze")); } catch (err) {}
+    if (knop.getAttribute("data-keuze") === "ja" && typeof window.effortLaadTracking === "function") {
+      window.effortLaadTracking();
+    }
+    banner.remove();
+  });
+  document.body.appendChild(banner);
+})();

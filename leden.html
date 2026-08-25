@@ -2,20 +2,26 @@
 <html lang="nl-BE">
 <head>
   <meta charset="UTF-8" />
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-T9N4K25R');</script>
-  <!-- End Google Tag Manager -->
-  <!-- Google tag (gtag.js): GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MKFWYT20NH"></script>
+  <!-- Metingen (GTM + GA4) laden pas na cookie-toestemming; zie privacy.html -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-MKFWYT20NH');
+    window.effortLaadTracking = function () {
+      if (window.__effortTrackingGeladen) return;
+      window.__effortTrackingGeladen = true;
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-T9N4K25R');
+      var ga = document.createElement('script');
+      ga.async = true;
+      ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-MKFWYT20NH';
+      document.head.appendChild(ga);
+      gtag('js', new Date());
+      gtag('config', 'G-MKFWYT20NH');
+    };
+    try { if (localStorage.getItem('effort-cookies') === 'ja') window.effortLaadTracking(); } catch (e) {}
   </script>
   <script>document.documentElement.classList.add('js');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -42,7 +48,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600&family=Inter:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=13" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=14" />
 
   <script type="application/ld+json">
   {
@@ -73,14 +79,10 @@
   </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T9N4K25R"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
   <header class="site-header">
     <div class="container">
-      <a class="brand" href="/" aria-label="Effort België, home"><img src="assets/img/logo-effort.png" alt="Effort België" /></a>
+      <a class="brand" href="/" aria-label="Effort België, home"><img src="assets/img/logo-effort.png" alt="Effort België" width="640" height="112" /></a>
       <nav class="nav-desktop" aria-label="Hoofdnavigatie">
         <ul>
           <li><a href="/">Home</a></li>
@@ -115,7 +117,7 @@
 
   <main>
     <section class="page-hero">
-      <div class="page-hero__bg"><img src="assets/img/class-group.jpg?v=6" alt="" /></div>
+      <div class="page-hero__bg"><img src="assets/img/class-group.webp" alt="" width="1600" height="987" /></div>
       <div class="container">
         <p class="eyebrow">Member of the Month</p>
         <h1>Onze leden zijn <br /><span class="text-red">het verhaal</span></h1>
@@ -129,7 +131,7 @@
         <div class="polaroid-grid">
           <article class="member reveal">
             <figure class="polaroid" style="--tilt:-2deg">
-              <img src="assets/img/leden/gert.jpg" alt="Gert, Member of the Month juli 2026 bij Effort" loading="lazy" width="680" height="850" />
+              <img src="assets/img/leden/gert.webp" alt="Gert, Member of the Month juli 2026 bij Effort" loading="lazy" width="680" height="850" />
               <figcaption>juli 2026</figcaption>
             </figure>
             <div class="member__body">
@@ -141,7 +143,7 @@
           </article>
           <article class="member reveal">
             <figure class="polaroid" style="--tilt:1.6deg">
-              <img src="assets/img/leden/nina.jpg" alt="Nina, Member of the Month juni 2026 bij Effort" loading="lazy" width="680" height="850" />
+              <img src="assets/img/leden/nina.webp" alt="Nina, Member of the Month juni 2026 bij Effort" loading="lazy" width="680" height="850" />
               <figcaption>juni 2026</figcaption>
             </figure>
             <div class="member__body">
@@ -153,7 +155,7 @@
           </article>
           <article class="member reveal">
             <figure class="polaroid" style="--tilt:-2.2deg">
-              <img src="assets/img/leden/tom.jpg" alt="Tom, Member of the Month mei 2026 bij Effort" loading="lazy" width="680" height="850" />
+              <img src="assets/img/leden/tom.webp" alt="Tom, Member of the Month mei 2026 bij Effort" loading="lazy" width="680" height="850" />
               <figcaption>mei 2026</figcaption>
             </figure>
             <div class="member__body">
@@ -165,7 +167,7 @@
           </article>
           <article class="member reveal" data-d="1">
             <figure class="polaroid" style="--tilt:1.8deg">
-              <img src="assets/img/leden/matthias.jpg" alt="Matthias, Member of the Month april 2026 bij Effort" loading="lazy" width="680" height="850" />
+              <img src="assets/img/leden/matthias.webp" alt="Matthias, Member of the Month april 2026 bij Effort" loading="lazy" width="680" height="850" />
               <figcaption>april 2026</figcaption>
             </figure>
             <div class="member__body">
@@ -177,7 +179,7 @@
           </article>
           <article class="member reveal" data-d="2">
             <figure class="polaroid" style="--tilt:-1.6deg">
-              <img src="assets/img/leden/kaat.jpg" alt="Kaat, Member of the Month maart 2026 bij Effort" loading="lazy" width="680" height="850" />
+              <img src="assets/img/leden/kaat.webp" alt="Kaat, Member of the Month maart 2026 bij Effort" loading="lazy" width="680" height="850" />
               <figcaption>maart 2026</figcaption>
             </figure>
             <div class="member__body">
@@ -189,7 +191,7 @@
           </article>
           <article class="member reveal">
             <figure class="polaroid" style="--tilt:2.4deg">
-              <img src="assets/img/leden/julie.jpg" alt="Julie, Member of the Month februari 2026 bij Effort" loading="lazy" width="680" height="850" />
+              <img src="assets/img/leden/julie.webp" alt="Julie, Member of the Month februari 2026 bij Effort" loading="lazy" width="680" height="850" />
               <figcaption>februari 2026</figcaption>
             </figure>
             <div class="member__body">
@@ -201,7 +203,7 @@
           </article>
           <article class="member reveal" data-d="1">
             <figure class="polaroid" style="--tilt:-2.6deg">
-              <img src="assets/img/leden/bianca.jpg" alt="Bianca, Member of the Month januari 2026 bij Effort" loading="lazy" width="680" height="850" />
+              <img src="assets/img/leden/bianca.webp" alt="Bianca, Member of the Month januari 2026 bij Effort" loading="lazy" width="680" height="850" />
               <figcaption>januari 2026</figcaption>
             </figure>
             <div class="member__body">
@@ -213,7 +215,7 @@
           </article>
           <article class="member reveal" data-d="2">
             <figure class="polaroid" style="--tilt:1.4deg">
-              <img src="assets/img/leden/joyce.jpg" alt="Joyce, Member of the Month december 2025 bij Effort" loading="lazy" width="680" height="850" />
+              <img src="assets/img/leden/joyce.webp" alt="Joyce, Member of the Month december 2025 bij Effort" loading="lazy" width="680" height="850" />
               <figcaption>december 2025</figcaption>
             </figure>
             <div class="member__body">
@@ -225,7 +227,7 @@
           </article>
           <article class="member reveal">
             <figure class="polaroid" style="--tilt:-1.8deg">
-              <img src="assets/img/leden/peter.jpg" alt="Peter, Member of the Month november 2025 bij Effort" loading="lazy" width="680" height="850" />
+              <img src="assets/img/leden/peter.webp" alt="Peter, Member of the Month november 2025 bij Effort" loading="lazy" width="680" height="850" />
               <figcaption>november 2025</figcaption>
             </figure>
             <div class="member__body">
@@ -237,7 +239,7 @@
           </article>
           <article class="member reveal" data-d="1">
             <figure class="polaroid" style="--tilt:2.2deg">
-              <img src="assets/img/leden/sofie.jpg" alt="Sofie, Member of the Month oktober 2025 bij Effort" loading="lazy" width="680" height="850" />
+              <img src="assets/img/leden/sofie.webp" alt="Sofie, Member of the Month oktober 2025 bij Effort" loading="lazy" width="680" height="850" />
               <figcaption>oktober 2025</figcaption>
             </figure>
             <div class="member__body">
@@ -249,7 +251,7 @@
           </article>
           <article class="member reveal" data-d="2">
             <figure class="polaroid" style="--tilt:-2.4deg">
-              <img src="assets/img/leden/joke.jpg" alt="Joke, Member of the Month september 2025 bij Effort" loading="lazy" width="680" height="850" />
+              <img src="assets/img/leden/joke.webp" alt="Joke, Member of the Month september 2025 bij Effort" loading="lazy" width="680" height="850" />
               <figcaption>september 2025</figcaption>
             </figure>
             <div class="member__body">
@@ -282,7 +284,7 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <a class="brand" href="/"><img src="assets/img/logo-effort.png" alt="Effort België" /></a>
+          <a class="brand" href="/"><img src="assets/img/logo-effort.png" alt="Effort België" width="640" height="112" /></a>
           <p>Make an effort, not an excuse. CrossFit, hybride workouts &amp; personal training in Kapellen, voor iedereen.</p>
           <div class="footer-socials">
             <a href="https://www.instagram.com/effortbelgie/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
@@ -292,7 +294,7 @@
         <div class="footer-col"><h4>Menu</h4><ul><li><a href="/">Home</a></li><li><a href="/team.html">Team</a></li><li><a href="/leden.html">Onze leden</a></li><li><a href="/aanbod.html">Aanbod</a></li><li><a href="/prijzen.html">Prijzen</a></li><li><a href="/rooster.html">Rooster</a></li><li><a href="/get-started.html">Proefles</a></li></ul></div>
         <div class="footer-col"><h4>Aanbod</h4><ul><li><a href="/aanbod.html#groepslessen">Groepslessen</a></li><li><a href="/aanbod.html#open-gym">Open gym</a></li><li><a href="/personal-training-kapellen.html">Personal training</a></li><li><a href="/hybride-training-kapellen.html">Hybride training</a></li><li><a href="/olympic-weightlifting-kapellen.html">Olympic weightlifting</a></li><li><a href="/crossfit-voor-beginners.html">Gids: voor beginners</a></li><li><a href="/terug-beginnen-met-sporten.html">Gids: terug beginnen</a></li><li><a href="/sporten-na-blessure-of-kine.html">Gids: na blessure of kine</a></li><li><a href="/krachttraining-na-je-40.html">Gids: krachttraining 40+</a></li></ul></div>
         <div class="footer-col"><h4>Regio</h4><ul><li><a href="/crossfit-kalmthout.html">CrossFit Kalmthout</a></li><li><a href="/crossfit-brasschaat.html">CrossFit Brasschaat</a></li><li><a href="/crossfit-wuustwezel.html">CrossFit Wuustwezel</a></li><li><a href="/crossfit-essen.html">CrossFit Essen</a></li><li><a href="/crossfit-gooreind.html">CrossFit Gooreind</a></li><li><a href="/crossfit-loenhout.html">CrossFit Loenhout</a></li><li><a href="/crossfit-maria-ter-heide.html">CrossFit Maria-ter-Heide</a></li><li><a href="/">CrossFit Kapellen</a></li></ul></div>
-        <div class="footer-col"><h4>Contact</h4><ul><li><a href="https://www.google.com/maps?q=Industrielaan+3,+2950+Kapellen" target="_blank" rel="noopener">Industrielaan 3<br />2950 Kapellen</a></li><li><a href="mailto:Yana@effortbelgie.be">Yana@effortbelgie.be</a></li><li><a href="https://wa.me/32478603127" target="_blank" rel="noopener">WhatsApp: 0478 60 31 27</a></li><li>Ma–do open tot 21u · vr tot 19u</li><li>Za 10–12u · zo 10–11u30</li></ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul><li><a href="https://www.google.com/maps?q=Industrielaan+3,+2950+Kapellen" target="_blank" rel="noopener">Industrielaan 3<br />2950 Kapellen</a></li><li><a href="mailto:Yana@effortbelgie.be">Yana@effortbelgie.be</a></li><li><a href="https://wa.me/32478603127" target="_blank" rel="noopener">WhatsApp: 0478 60 31 27</a></li><li>Ma–do open tot 21u · vr tot 19u</li><li>Za 10–12u · zo 10–11u30</li><li>Cop-Cosyns BV · BE 0735.972.256</li><li><a href="privacy.html">Privacy &amp; cookies</a></li></ul></div>
       </div>
       <div class="footer-bottom">
         <span>© <span id="year"></span> Effort België · CrossFit Kapellen</span>
@@ -303,6 +305,6 @@
 
   <div class="sticky-cta"><a class="btn btn--primary" href="get-started.html#boek">Boek je gratis proefles</a></div>
 
-  <script src="assets/js/main.js?v=4" defer></script>
+  <script src="assets/js/main.js?v=5" defer></script>
 </body>
 </html>
